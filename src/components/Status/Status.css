@@ -1,0 +1,170 @@
+.health-bar {
+  width: 100%;
+  height: 24px;
+  background: #1a1a2e;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid #333;
+}
+
+.health-bar__fill {
+  height: 100%;
+  transition: width 0.3s ease;
+  border-radius: 10px;
+}
+
+.health-bar--health .health-bar__fill {
+  background: linear-gradient(90deg, #ff4444, #cc3333);
+}
+
+.health-bar--mana .health-bar__fill {
+  background: linear-gradient(90deg, #4488ff, #3366cc);
+}
+
+.health-bar--armor .health-bar__fill {
+  background: linear-gradient(90deg, #888888, #666666);
+}
+
+.health-bar__text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-weight: bold;
+  font-size: 12px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+/* Mana Bar */
+.mana-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mana-bar__icon {
+  font-size: 20px;
+}
+
+.mana-bar__orbs {
+  display: flex;
+  gap: 4px;
+}
+
+.mana-orb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid #4488ff;
+  transition: all 0.3s ease;
+}
+
+.mana-orb--filled {
+  background: linear-gradient(145deg, #66aaff, #4488ff);
+  box-shadow: 0 0 10px rgba(68, 136, 255, 0.5);
+}
+
+.mana-orb--empty {
+  background: #1a1a2e;
+}
+
+.mana-bar__text {
+  color: #88ccff;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+/* Armor Display */
+.armor-display {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(136, 136, 136, 0.2);
+  padding: 4px 10px;
+  border-radius: 15px;
+  border: 1px solid #666;
+}
+
+.armor-display__icon {
+  font-size: 16px;
+}
+
+.armor-display__value {
+  color: #aaa;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+/* Status Effects */
+.status-effects {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.status-effect {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  cursor: help;
+}
+
+.status-effect__icon {
+  font-size: 14px;
+}
+
+.status-effect__value {
+  font-weight: bold;
+  color: #fff;
+}
+
+.status-effect__duration {
+  color: #888;
+  font-size: 10px;
+}
+
+.status-effect--poison {
+  border: 1px solid #44ff44;
+  color: #88ff88;
+}
+
+.status-effect--bleed {
+  border: 1px solid #ff4444;
+  color: #ff8888;
+}
+
+.status-effect--burn {
+  border: 1px solid #ff8844;
+  color: #ffaa88;
+}
+
+.status-effect--weakness {
+  border: 1px solid #ff88ff;
+  color: #ffaaff;
+}
+
+.status-effect--strength {
+  border: 1px solid #ffaa44;
+  color: #ffcc88;
+}
+
+.status-effect--regeneration {
+  border: 1px solid #44ffaa;
+  color: #88ffcc;
+}
+
+.status-effect--vulnerable {
+  border: 1px solid #ff4488;
+  color: #ff88aa;
+}
+
+.status-effect--shield {
+  border: 1px solid #8888ff;
+  color: #aaaaff;
+}

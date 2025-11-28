@@ -1,0 +1,476 @@
+.shop-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  padding: 1rem;
+}
+
+.shop-page__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.shop-page__title {
+  font-size: 2rem;
+  color: #ffd700;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+  margin: 0;
+}
+
+.shop-page__gold {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.5rem;
+  color: #ffd700;
+  background: rgba(255, 215, 0, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+.shop-page__content {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 1.5rem;
+  height: calc(100vh - 150px);
+}
+
+.shop-page__main {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.shop-page__sidebar {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 1rem;
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+/* ==================== SHOP ITEMS ==================== */
+
+.shop-items {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 1rem;
+  padding: 1.5rem;
+}
+
+.shop-items__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.shop-items__title {
+  font-size: 1.25rem;
+  color: #e0e0e0;
+  margin: 0;
+}
+
+.shop-items__refresh {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.shop-items__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+/* ==================== SHOP ITEM ==================== */
+
+.shop-item {
+  background: linear-gradient(145deg, #2a2a3e, #1e1e2e);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  border: 2px solid #333;
+  transition: all 0.3s ease;
+  position: relative;
+  cursor: pointer;
+}
+
+.shop-item:hover:not(.shop-item--sold):not(.shop-item--disabled) {
+  transform: translateY(-4px);
+  border-color: #4a4a6a;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.shop-item--sold {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.shop-item--disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.shop-item--common {
+  border-color: #9d9d9d;
+}
+
+.shop-item--uncommon {
+  border-color: #1eff00;
+}
+
+.shop-item--rare {
+  border-color: #0070dd;
+}
+
+.shop-item--epic {
+  border-color: #a335ee;
+}
+
+.shop-item--legendary {
+  border-color: #ff8000;
+  box-shadow: 0 0 15px rgba(255, 128, 0, 0.3);
+}
+
+.shop-item__discount {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: #e74c3c;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+  z-index: 1;
+}
+
+.shop-item__sold-badge {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-15deg);
+  background: rgba(0, 0, 0, 0.8);
+  color: #e74c3c;
+  font-size: 1.25rem;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: 2px solid #e74c3c;
+  z-index: 2;
+}
+
+.shop-item__type-icon {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.shop-item__name {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #e0e0e0;
+  text-align: center;
+  margin-bottom: 0.25rem;
+}
+
+.shop-item__rarity {
+  font-size: 0.75rem;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.shop-item__description {
+  font-size: 0.75rem;
+  color: #a0a0a0;
+  text-align: center;
+  margin-bottom: 0.75rem;
+  min-height: 2.5rem;
+}
+
+.shop-item__cost {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  font-size: 0.8rem;
+  color: #87ceeb;
+  margin-bottom: 0.5rem;
+}
+
+.shop-item__price {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.shop-item__original-price {
+  text-decoration: line-through;
+  color: #888;
+  font-size: 0.9rem;
+}
+
+.shop-item__final-price {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #ffd700;
+}
+
+.shop-item__buy-btn {
+  width: 100%;
+  margin-top: 0.75rem;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: linear-gradient(145deg, #3498db, #2980b9);
+  color: white;
+}
+
+.shop-item__buy-btn:hover:not(:disabled) {
+  background: linear-gradient(145deg, #2980b9, #3498db);
+  transform: scale(1.02);
+}
+
+.shop-item__buy-btn:disabled {
+  background: #555;
+  color: #888;
+  cursor: not-allowed;
+}
+
+/* ==================== DECK MANAGER ==================== */
+
+.deck-manager {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.deck-manager__header {
+  margin-bottom: 1rem;
+}
+
+.deck-manager__title {
+  font-size: 1.1rem;
+  color: #e0e0e0;
+  margin: 0 0 0.25rem 0;
+}
+
+.deck-manager__count {
+  font-size: 0.85rem;
+  color: #888;
+}
+
+.deck-manager__cards {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.deck-card {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 0.5rem;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.deck-card:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.deck-card--common {
+  border-left: 3px solid #9d9d9d;
+}
+
+.deck-card--uncommon {
+  border-left: 3px solid #1eff00;
+}
+
+.deck-card--rare {
+  border-left: 3px solid #0070dd;
+}
+
+.deck-card--epic {
+  border-left: 3px solid #a335ee;
+}
+
+.deck-card--legendary {
+  border-left: 3px solid #ff8000;
+}
+
+.deck-card__icon {
+  font-size: 1.25rem;
+}
+
+.deck-card__info {
+  flex: 1;
+}
+
+.deck-card__name {
+  font-size: 0.85rem;
+  color: #e0e0e0;
+}
+
+.deck-card__cost {
+  font-size: 0.75rem;
+  color: #87ceeb;
+}
+
+.deck-card__sell-btn {
+  padding: 0.25rem 0.5rem;
+  background: rgba(231, 76, 60, 0.3);
+  border: 1px solid #e74c3c;
+  border-radius: 0.25rem;
+  color: #e74c3c;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.deck-card__sell-btn:hover:not(:disabled) {
+  background: #e74c3c;
+  color: white;
+}
+
+.deck-card__sell-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.deck-card__sell-price {
+  font-size: 0.7rem;
+  color: #ffd700;
+}
+
+/* ==================== COLLECTION VIEW ==================== */
+
+.collection {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.collection__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.collection__title {
+  font-size: 1.25rem;
+  color: #e0e0e0;
+  margin: 0;
+}
+
+.collection__filter {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.collection__filter-btn {
+  padding: 0.25rem 0.75rem;
+  border: 1px solid #444;
+  border-radius: 0.5rem;
+  background: transparent;
+  color: #888;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.85rem;
+}
+
+.collection__filter-btn:hover {
+  border-color: #666;
+  color: #aaa;
+}
+
+.collection__filter-btn--active {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #888;
+  color: #e0e0e0;
+}
+
+.collection__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 0.75rem;
+}
+
+.collection-card {
+  background: linear-gradient(145deg, #2a2a3e, #1e1e2e);
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  border: 2px solid #333;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.collection-card:hover:not(.collection-card--locked) {
+  transform: translateY(-2px);
+  border-color: #4a4a6a;
+}
+
+.collection-card--locked {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.collection-card--in-deck {
+  background: rgba(46, 204, 113, 0.1);
+  border-color: rgba(46, 204, 113, 0.5);
+}
+
+.collection-card__icon {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 0.25rem;
+}
+
+.collection-card__name {
+  font-size: 0.8rem;
+  color: #e0e0e0;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.collection-card__rarity {
+  font-size: 0.7rem;
+  text-align: center;
+}
+
+/* ==================== ACTIONS ==================== */
+
+.shop-page__actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+/* ==================== RESPONSIVE ==================== */
+
+@media (max-width: 900px) {
+  .shop-page__content {
+    grid-template-columns: 1fr;
+  }
+
+  .shop-page__sidebar {
+    max-height: 300px;
+  }
+}

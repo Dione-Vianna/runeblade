@@ -1,0 +1,44 @@
+.hand {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 20px;
+  min-height: 240px;
+}
+
+.hand__cards {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: nowrap;
+  perspective: 1000px;
+}
+
+.hand__card {
+  transition: transform 0.3s ease;
+}
+
+.hand__card:hover {
+  z-index: 100;
+}
+
+.hand__empty {
+  color: #666;
+  font-size: 18px;
+  font-style: italic;
+}
+
+/* Fan effect para muitas cartas */
+@media (min-width: 768px) {
+  .hand__cards {
+    gap: -20px;
+  }
+
+  .hand__card {
+    margin-left: -30px;
+  }
+
+  .hand__card:first-child {
+    margin-left: 0;
+  }
+}

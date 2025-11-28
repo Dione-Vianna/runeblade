@@ -1,0 +1,184 @@
+.map-page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  flex: 1;
+}
+
+.map-page__header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 20px;
+}
+
+.map-page__gold {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 8px 15px;
+  border-radius: 20px;
+  border: 1px solid #ffd700;
+}
+
+.map-page__gold-icon {
+  font-size: 20px;
+}
+
+.map-page__gold-value {
+  color: #ffd700;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+/* Menu Inicial */
+.map-page--menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.map-page__menu {
+  text-align: center;
+  max-width: 500px;
+  padding: 40px;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 20px;
+  border: 2px solid #444;
+}
+
+.map-page__title {
+  font-size: 48px;
+  color: #ffd700;
+  margin: 0 0 10px 0;
+  text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+}
+
+.map-page__subtitle {
+  color: #888;
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.map-page__menu-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+.map-page__acts {
+  text-align: left;
+}
+
+.map-page__acts h3 {
+  color: #888;
+  margin-bottom: 15px;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.map-page__act-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.map-page__act-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 15px;
+  background: rgba(68, 136, 255, 0.1);
+  border-radius: 8px;
+  border: 1px solid #4488ff;
+  color: #88ccff;
+}
+
+.map-page__act-item--locked {
+  opacity: 0.5;
+  border-color: #444;
+  background: rgba(100, 100, 100, 0.1);
+  color: #666;
+}
+
+.map-page__act-icon {
+  font-size: 24px;
+}
+
+.map-page__lock {
+  margin-left: auto;
+}
+
+/* Vitória */
+.map-page--victory {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.map-page__victory {
+  text-align: center;
+  padding: 50px;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 20px;
+  border: 2px solid #44aa44;
+  box-shadow: 0 0 50px rgba(68, 170, 68, 0.3);
+}
+
+.map-page__victory-title {
+  font-size: 42px;
+  color: #88ff88;
+  margin: 0 0 15px 0;
+  text-shadow: 0 0 20px rgba(136, 255, 136, 0.5);
+}
+
+.map-page__victory-text {
+  color: #aaa;
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.map-page__victory-stats {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.map-page__stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+.map-page__stat-icon {
+  font-size: 30px;
+}
+
+.map-page__stat-value {
+  font-size: 28px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.map-page__stat-label {
+  font-size: 12px;
+  color: #888;
+  text-transform: uppercase;
+}
+
+.map-page__victory-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.map-page__current-node {
+  display: none;
+}

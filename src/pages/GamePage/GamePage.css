@@ -1,0 +1,11 @@
+/* GamePage specific styles */
+.game-page {
+  /* Styles específicos da página podem ser adicionados aqui */
+}
+
+.game-page__return {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.5);
+}

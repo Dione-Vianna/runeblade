@@ -1,6 +1,7 @@
+import { useEffect } from 'react';
 import { Board, Layout } from '../../components';
 import { GameButton } from '../../components/Buttons';
-import { useGameEngine } from '../../hooks';
+import { useGameEngine, useSoundManager } from '../../hooks';
 import './GamePage.css';
 
 interface GamePageProps {
@@ -21,6 +22,19 @@ export function GamePage({ onBattleEnd, showReturnButton = false }: GamePageProp
     resetGame,
     canPlayCard,
   } = useGameEngine();
+
+  const { play } = useSoundManager();
+
+  // Play victory or defeat sound when game ends
+  useEffect(() => {
+    if (isGameOver) {
+      if (isVictory) {
+        play('victory');
+      } else {
+        play('defeat');
+      }
+    }
+  }, [isGameOver, isVictory, play]);
 
   const handleRestart = () => {
     if (onBattleEnd) {

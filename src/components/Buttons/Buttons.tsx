@@ -1,3 +1,4 @@
+import { useSoundManager } from '../../hooks';
 import './Buttons.css';
 
 interface EndTurnButtonProps {
@@ -6,10 +7,17 @@ interface EndTurnButtonProps {
 }
 
 export function EndTurnButton({ onClick, disabled = false }: EndTurnButtonProps) {
+  const { play } = useSoundManager();
+
+  const handleClick = () => {
+    play('click');
+    onClick();
+  };
+
   return (
     <button
       className={`btn btn--end-turn ${disabled ? 'btn--disabled' : ''}`}
-      onClick={onClick}
+      onClick={handleClick}
       disabled={disabled}
     >
       <span className="btn__text">Finalizar Turno</span>
@@ -23,8 +31,15 @@ interface RestartButtonProps {
 }
 
 export function RestartButton({ onClick }: RestartButtonProps) {
+  const { play } = useSoundManager();
+
+  const handleClick = () => {
+    play('click');
+    onClick();
+  };
+
   return (
-    <button className="btn btn--restart" onClick={onClick}>
+    <button className="btn btn--restart" onClick={handleClick}>
       <span className="btn__icon">🔄</span>
       <span className="btn__text">Reiniciar</span>
     </button>
@@ -44,10 +59,17 @@ export function GameButton({
   variant = 'primary',
   disabled = false
 }: GameButtonProps) {
+  const { play } = useSoundManager();
+
+  const handleClick = () => {
+    play('click');
+    onClick();
+  };
+
   return (
     <button
       className={`btn btn--${variant} ${disabled ? 'btn--disabled' : ''}`}
-      onClick={onClick}
+      onClick={handleClick}
       disabled={disabled}
     >
       {children}

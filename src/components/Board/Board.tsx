@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import type { CardInstance, Enemy, Player } from '../../game/types';
-import { useFloatingNumbers } from '../../hooks';
+import { useFloatingNumbers, useSoundManager } from '../../hooks';
 import { EndTurnButton, RestartButton } from '../Buttons';
 import { FloatingNumber } from '../FloatingNumber';
 import { Hand } from '../Hand';
@@ -34,6 +34,7 @@ export function Board({
   canPlayCard
 }: BoardProps) {
   const { numbers, addNumber } = useFloatingNumbers();
+  const { play } = useSoundManager();
   const [prevPlayerHp, setPrevPlayerHp] = useState(player.hp);
   const [prevPlayerArmor, setPrevPlayerArmor] = useState(player.armor);
   const [prevEnemyHp, setPrevEnemyHp] = useState(enemy?.hp ?? 0);
@@ -47,6 +48,7 @@ export function Board({
     const playerHpDiff = prevPlayerHp - player.hp;
     if (playerHpDiff > 0) {
       addNumber(window.innerWidth / 2 - 50, window.innerHeight / 2 + 100, playerHpDiff, 'damage');
+      play('damage');
       setDamageAnimation(true);
       setTimeout(() => setDamageAnimation(false), 300);
     }
@@ -54,6 +56,7 @@ export function Board({
     const playerHealDiff = player.hp - prevPlayerHp;
     if (playerHealDiff > 0) {
       addNumber(window.innerWidth / 2 - 50, window.innerHeight / 2 + 100, playerHealDiff, 'healing');
+      play('heal');
       setHealAnimation(true);
       setTimeout(() => setHealAnimation(false), 400);
     }
@@ -61,11 +64,12 @@ export function Board({
     const armorDiff = player.armor - prevPlayerArmor;
     if (armorDiff > 0) {
       addNumber(window.innerWidth / 2 - 50, window.innerHeight / 2 + 140, armorDiff, 'armor');
+      play('defense');
     }
 
     setPrevPlayerHp(player.hp);
     setPrevPlayerArmor(player.armor);
-  }, [player.hp, player.armor, addNumber, prevPlayerHp, prevPlayerArmor]);
+  }, [player.hp, player.armor, addNumber, prevPlayerHp, prevPlayerArmor, play]);
 
   // Detectar mudanças do inimigo
   useEffect(() => {
@@ -74,6 +78,7 @@ export function Board({
     const enemyHpDiff = prevEnemyHp - enemy.hp;
     if (enemyHpDiff > 0) {
       addNumber(window.innerWidth / 2 + 50, window.innerHeight / 4, enemyHpDiff, 'damage');
+      play('attack');
       setEnemyDamageAnimation(true);
       setTimeout(() => setEnemyDamageAnimation(false), 300);
     }
@@ -81,11 +86,12 @@ export function Board({
     const enemyArmorDiff = enemy.armor - prevEnemyArmor;
     if (enemyArmorDiff > 0) {
       addNumber(window.innerWidth / 2 + 50, window.innerHeight / 4 + 40, enemyArmorDiff, 'armor');
+      play('defense');
     }
 
     setPrevEnemyHp(enemy.hp);
     setPrevEnemyArmor(enemy.armor);
-  }, [enemy?.hp, enemy?.armor, addNumber, prevEnemyHp, prevEnemyArmor, enemy]);
+  }, [enemy?.hp, enemy?.armor, addNumber, prevEnemyHp, prevEnemyArmor, enemy, play]);
 
   return (
     <div className="board">

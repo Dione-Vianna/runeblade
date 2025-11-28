@@ -169,12 +169,51 @@ RuneBlade possui animações dinâmicas que tornam o combate mais envolvente:
 - 🏆 **Victory Animation** - Efeito de bounce e escala
 - 💀 **Defeat Animation** - Fade out suave ao ser derrotado
 
+## 🔊 Sistema de Som
+
+RuneBlade utiliza a **Web Audio API** para gerar sons sinteticamente, sem necessidade de arquivos de áudio externos.
+
+### Tipos de Sons
+
+| Som | Trigger | Descrição |
+|-----|---------|-----------|
+| ⚔️ **Attack** | Quando você ataca um inimigo | Síntese de som de espada |
+| 🛡️ **Defense** | Quando você ganha armadura | Som de escudo protegendo |
+| ✨ **Magic** | Quando você lança magia | Som de energia mágica |
+| 💚 **Heal** | Quando você se cura | Som reconfortante de cura |
+| 💥 **Damage** | Quando você leva dano | Som de impacto/dano |
+| 🏆 **Victory** | Ao derrotar um inimigo | Música de vitória |
+| 💀 **Defeat** | Quando você é derrotado | Som melancólico de derrota |
+| 🎴 **Card Play** | Ao jogar uma carta | Som de carta sendo jogada |
+| 🗑️ **Card Discard** | Ao descartar uma carta | Som de carta sendo descartada |
+| 🖱️ **Click** | Ao clicar em botões | Som de clique suave |
+| ⬆️ **Buff** | Quando recebe buff | Som de fortalecimento |
+| ⬇️ **Debuff** | Quando recebe debuff | Som de enfraquecimento |
+| ⬆️ **Level Up** | Ao subir de nível | Som de progressão |
+
+### Controle de Volume
+
+O jogo oferece controles independentes de som:
+
+- 🔊 **Volume Principal** - Controla o volume geral de todos os sons (0-100%)
+- ⚔️ **Volume de Efeitos** - Controla volume de sons de combate e ações (0-100%)
+- 🎵 **Volume de Música** - Reservado para futura adição de música de fundo (0-100%)
+
+### Configurações de Som
+
+Clique no botão ⚙️ no canto superior direito da tela para acessar as configurações de som:
+
+- 🔊 **Sliders de Volume** - Ajuste volumes independentemente
+- 🔇 **Mute Toggle** - Silencie todos os sons com um clique
+- 💾 **Auto-save** - Configurações são salvas localmente
+
 ## 🎯 Roadmap
 
 - [x] Sistema de mapas e fases
 - [x] Coleção de cartas desbloqueáveis
 - [x] Sistema de raridade com drops
 - [x] Animações de combate
+- [x] Sistema de som com controle de volume
 - [ ] Modo história
 - [ ] Sistema de save/load
 - [ ] Mais inimigos e bosses

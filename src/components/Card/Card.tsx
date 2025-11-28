@@ -1,4 +1,5 @@
 import type { CardInstance } from '../../game/types';
+import { useSoundManager } from '../../hooks';
 import './Card.css';
 
 interface CardProps {
@@ -9,8 +10,11 @@ interface CardProps {
 }
 
 export function Card({ card, onClick, disabled = false, isPlayable = true }: CardProps) {
+  const { play } = useSoundManager();
+
   const handleClick = () => {
     if (!disabled && isPlayable && onClick) {
+      play('cardPlay');
       onClick(card);
     }
   };

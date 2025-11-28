@@ -1,0 +1,2 @@
+export { FloatingNumber } from './FloatingNumber';
+

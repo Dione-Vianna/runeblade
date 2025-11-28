@@ -1,5 +1,9 @@
+import { useEffect, useState } from 'react';
+
 import type { CardInstance, Enemy, Player } from '../../game/types';
+import { useFloatingNumbers } from '../../hooks';
 import { EndTurnButton, RestartButton } from '../Buttons';
+import { FloatingNumber } from '../FloatingNumber';
 import { Hand } from '../Hand';
 import { ArmorDisplay, HealthBar, ManaBar, StatusEffects } from '../Status';
 import './Board.css';
@@ -29,12 +33,73 @@ export function Board({
   onRestart,
   canPlayCard
 }: BoardProps) {
+  const { numbers, addNumber } = useFloatingNumbers();
+  const [prevPlayerHp, setPrevPlayerHp] = useState(player.hp);
+  const [prevPlayerArmor, setPrevPlayerArmor] = useState(player.armor);
+  const [prevEnemyHp, setPrevEnemyHp] = useState(enemy?.hp ?? 0);
+  const [prevEnemyArmor, setPrevEnemyArmor] = useState(enemy?.armor ?? 0);
+  const [damageAnimation, setDamageAnimation] = useState(false);
+  const [healAnimation, setHealAnimation] = useState(false);
+  const [enemyDamageAnimation, setEnemyDamageAnimation] = useState(false);
+
+  // Detectar mudanças de HP/Armor e criar floating numbers
+  useEffect(() => {
+    const playerHpDiff = prevPlayerHp - player.hp;
+    if (playerHpDiff > 0) {
+      addNumber(window.innerWidth / 2 - 50, window.innerHeight / 2 + 100, playerHpDiff, 'damage');
+      setDamageAnimation(true);
+      setTimeout(() => setDamageAnimation(false), 300);
+    }
+
+    const playerHealDiff = player.hp - prevPlayerHp;
+    if (playerHealDiff > 0) {
+      addNumber(window.innerWidth / 2 - 50, window.innerHeight / 2 + 100, playerHealDiff, 'healing');
+      setHealAnimation(true);
+      setTimeout(() => setHealAnimation(false), 400);
+    }
+
+    const armorDiff = player.armor - prevPlayerArmor;
+    if (armorDiff > 0) {
+      addNumber(window.innerWidth / 2 - 50, window.innerHeight / 2 + 140, armorDiff, 'armor');
+    }
+
+    setPrevPlayerHp(player.hp);
+    setPrevPlayerArmor(player.armor);
+  }, [player.hp, player.armor, addNumber, prevPlayerHp, prevPlayerArmor]);
+
+  // Detectar mudanças do inimigo
+  useEffect(() => {
+    if (!enemy) return;
+
+    const enemyHpDiff = prevEnemyHp - enemy.hp;
+    if (enemyHpDiff > 0) {
+      addNumber(window.innerWidth / 2 + 50, window.innerHeight / 4, enemyHpDiff, 'damage');
+      setEnemyDamageAnimation(true);
+      setTimeout(() => setEnemyDamageAnimation(false), 300);
+    }
+
+    const enemyArmorDiff = enemy.armor - prevEnemyArmor;
+    if (enemyArmorDiff > 0) {
+      addNumber(window.innerWidth / 2 + 50, window.innerHeight / 4 + 40, enemyArmorDiff, 'armor');
+    }
+
+    setPrevEnemyHp(enemy.hp);
+    setPrevEnemyArmor(enemy.armor);
+  }, [enemy?.hp, enemy?.armor, addNumber, prevEnemyHp, prevEnemyArmor, enemy]);
+
   return (
     <div className="board">
+      {/* Floating Numbers */}
+      <div className="board__floating-numbers">
+        {numbers.map(num => (
+          <FloatingNumber key={num.id} {...num} />
+        ))}
+      </div>
+
       {/* Área do inimigo */}
       <div className="board__enemy-area">
         {enemy && (
-          <div className="enemy-panel">
+          <div className={`enemy-panel ${enemyDamageAnimation ? 'damage-taken' : ''}`}>
             <div className="enemy-panel__portrait">
               <span className="enemy-panel__emoji">👹</span>
             </div>
@@ -71,7 +136,7 @@ export function Board({
         </div>
 
         {isGameOver && (
-          <div className={`game-over ${isVictory ? 'game-over--victory' : 'game-over--defeat'}`}>
+          <div className={`game-over ${isVictory ? 'game-over--victory victory-animation' : 'game-over--defeat defeat-animation'}`}>
             <h2 className="game-over__title">
               {isVictory ? '🏆 Vitória!' : '💀 Derrota'}
             </h2>
@@ -91,7 +156,7 @@ export function Board({
 
       {/* Área do jogador */}
       <div className="board__player-area">
-        <div className="player-panel">
+        <div className={`player-panel ${damageAnimation ? 'damage-taken' : ''} ${healAnimation ? 'healing-received' : ''}`}>
           <div className="player-panel__portrait">
             <span className="player-panel__emoji">🧙</span>
           </div>

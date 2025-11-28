@@ -23,7 +23,7 @@ function App() {
       if (node.enemyId) {
         const enemyTemplate = getEnemyById(node.enemyId);
         if (enemyTemplate) {
-          const enemy = createEnemyInstance(enemyTemplate);
+          createEnemyInstance(enemyTemplate);
           // Iniciar jogo com o inimigo específico
           startGame();
           setCurrentBattleNode(node);

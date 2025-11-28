@@ -6,6 +6,7 @@
   position: relative;
   overflow: hidden;
   border: 2px solid #333;
+  transition: all 0.3s ease;
 }
 
 .health-bar__fill {
@@ -66,8 +67,16 @@
   box-shadow: 0 0 10px rgba(68, 136, 255, 0.5);
 }
 
+.mana-orb--filled.mana-orb--fill-animation {
+  animation: manaRefill 0.5s ease-out;
+}
+
 .mana-orb--empty {
   background: #1a1a2e;
+}
+
+.mana-orb--empty.mana-orb--spend-animation {
+  animation: manaSpend 0.3s ease-in;
 }
 
 .mana-bar__text {
@@ -85,6 +94,7 @@
   padding: 4px 10px;
   border-radius: 15px;
   border: 1px solid #666;
+  transition: all 0.3s ease;
 }
 
 .armor-display__icon {
@@ -113,6 +123,11 @@
   border-radius: 12px;
   font-size: 12px;
   cursor: help;
+  transition: all 0.2s ease;
+}
+
+.status-effect.active {
+  transform: scale(1.05);
 }
 
 .status-effect__icon {
@@ -134,14 +149,26 @@
   color: #88ff88;
 }
 
+.status-effect--poison.active {
+  animation: poisonPulse 1s ease-in-out infinite;
+}
+
 .status-effect--bleed {
   border: 1px solid #ff4444;
   color: #ff8888;
 }
 
+.status-effect--bleed.active {
+  animation: bleedPulse 1s ease-in-out infinite;
+}
+
 .status-effect--burn {
   border: 1px solid #ff8844;
   color: #ffaa88;
+}
+
+.status-effect--burn.active {
+  animation: burnPulse 1s ease-in-out infinite;
 }
 
 .status-effect--weakness {
@@ -154,9 +181,17 @@
   color: #ffcc88;
 }
 
+.status-effect--strength.active {
+  animation: strengthGlow 1.2s ease-in-out infinite;
+}
+
 .status-effect--regeneration {
   border: 1px solid #44ffaa;
   color: #88ffcc;
+}
+
+.status-effect--regeneration.active {
+  animation: bufferGlow 1.2s ease-in-out infinite;
 }
 
 .status-effect--vulnerable {

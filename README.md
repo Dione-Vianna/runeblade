@@ -143,13 +143,39 @@ Ao visitar um nó de loja no mapa, você pode:
 - 📦 **Gerencie seu deck** - Mínimo 8 cartas, máximo 20
 - 💾 **Progresso salvo** - Suas cartas desbloqueadas são persistidas
 
+## 🎬 Animações de Combate
+
+RuneBlade possui animações dinâmicas que tornam o combate mais envolvente:
+
+### Efeitos de Dano e Cura
+- 💥 **Números Flutuantes** - Exibe dano/cura acima do alvo
+- 🎯 **Shake Effect** - A tela de dano tremula quando levado
+- 💚 **Healing Glow** - Efeito visual de cura com brilho verde
+- 🛡️ **Armor Gain** - Números azuis flutuam ao ganhar armadura
+
+### Animações de Cartas
+- 🎴 **Card Play** - Cartas se movem para cima ao serem jogadas
+- 🗑️ **Card Discard** - Cartas descartadas giram e desaparecem
+- 🎁 **Card Deal** - Cartas aparecem com animação ao entrar na mão
+
+### Efeitos de Status
+- 💀 **Poison Pulse** - Pulsação verde para veneno
+- 🩸 **Bleed Pulse** - Pulsação vermelha para sangramento
+- 🔥 **Burn Pulse** - Pulsação laranja para queimadura
+- 💪 **Strength Glow** - Brilho dourado para força
+- 💚 **Regeneration Glow** - Brilho verde para regeneração
+
+### Telas de Vitória/Derrota
+- 🏆 **Victory Animation** - Efeito de bounce e escala
+- 💀 **Defeat Animation** - Fade out suave ao ser derrotado
+
 ## 🎯 Roadmap
 
 - [x] Sistema de mapas e fases
 - [x] Coleção de cartas desbloqueáveis
 - [x] Sistema de raridade com drops
+- [x] Animações de combate
 - [ ] Modo história
-- [ ] Animações de combate
 - [ ] Sistema de save/load
 - [ ] Mais inimigos e bosses
 - [ ] Multiplayer

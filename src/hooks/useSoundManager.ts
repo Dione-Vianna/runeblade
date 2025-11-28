@@ -22,20 +22,15 @@ export const useSoundManager = () => {
     soundManager.toggleMute();
   }, []);
 
-  const isMuted = soundManager.isMuted;
-  const getMasterVolume = () => soundManager.masterVolume;
-  const getSoundVolume = () => soundManager.soundVolume;
-  const getMusicVolume = () => soundManager.musicVolume;
-
   return {
     play,
     setMasterVolume,
     setSoundVolume,
     setMusicVolume,
     toggleMute,
-    isMuted,
-    masterVolume: getMasterVolume(),
-    soundVolume: getSoundVolume(),
-    musicVolume: getMusicVolume(),
+    isMuted: soundManager.isMuted,
+    masterVolume: soundManager.getMasterVolume(),
+    soundVolume: soundManager.getSoundVolume(),
+    musicVolume: soundManager.getMusicVolume(),
   };
 };

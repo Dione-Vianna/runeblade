@@ -1,7 +1,11 @@
+import { useState } from 'react';
 import { useSoundManager } from '../../hooks';
 import './Settings.css';
 
+type Tab = 'som' | 'jogo' | 'display';
+
 export function Settings() {
+  const [activeTab, setActiveTab] = useState<Tab>('som');
   const {
     play,
     masterVolume,
@@ -36,7 +40,7 @@ export function Settings() {
   return (
     <div className="settings">
       <div className="settings__header">
-        <h2 className="settings__title">⚙️ Configurações de Som</h2>
+        <h2 className="settings__title">⚙️ Configurações</h2>
         <button
           className={`settings__mute-btn ${isMuted ? 'settings__mute-btn--muted' : ''}`}
           onClick={handleToggleMute}
@@ -46,60 +50,103 @@ export function Settings() {
         </button>
       </div>
 
-      <div className="settings__control">
-        <label className="settings__label">
-          <span className="settings__label-text">🔊 Volume Principal</span>
-          <input
-            type="range"
-            min="0"
-            max="1"
-            step="0.1"
-            value={masterVolume}
-            onChange={handleMasterVolumeChange}
-            className="settings__slider"
-            disabled={isMuted}
-          />
-          <span className="settings__value">{Math.round(masterVolume * 100)}%</span>
-        </label>
+      <div className="settings__tabs">
+        <button
+          className={`settings__tab ${activeTab === 'som' ? 'settings__tab--active' : ''}`}
+          onClick={() => setActiveTab('som')}
+        >
+          🔊 Som
+        </button>
+        <button
+          className={`settings__tab ${activeTab === 'jogo' ? 'settings__tab--active' : ''}`}
+          onClick={() => setActiveTab('jogo')}
+        >
+          🎮 Jogo
+        </button>
+        <button
+          className={`settings__tab ${activeTab === 'display' ? 'settings__tab--active' : ''}`}
+          onClick={() => setActiveTab('display')}
+        >
+          🖥️ Display
+        </button>
       </div>
 
-      <div className="settings__control">
-        <label className="settings__label">
-          <span className="settings__label-text">⚔️ Volume de Efeitos</span>
-          <input
-            type="range"
-            min="0"
-            max="1"
-            step="0.1"
-            value={soundVolume}
-            onChange={handleSoundVolumeChange}
-            className="settings__slider"
-            disabled={isMuted}
-          />
-          <span className="settings__value">{Math.round(soundVolume * 100)}%</span>
-        </label>
-      </div>
+      <div className="settings__panel">
+        {activeTab === 'som' && (
+          <>
+            <div className="settings__control">
+              <label className="settings__label">
+                <span className="settings__label-text">🔊 Volume Principal</span>
+                <input
+                  type="range"
+                  min="0"
+                  max="1"
+                  step="0.1"
+                  value={masterVolume}
+                  onChange={handleMasterVolumeChange}
+                  className="settings__slider"
+                  disabled={isMuted}
+                />
+                <span className="settings__value">{Math.round(masterVolume * 100)}%</span>
+              </label>
+            </div>
 
-      <div className="settings__control">
-        <label className="settings__label">
-          <span className="settings__label-text">🎵 Volume de Música</span>
-          <input
-            type="range"
-            min="0"
-            max="1"
-            step="0.1"
-            value={musicVolume}
-            onChange={handleMusicVolumeChange}
-            className="settings__slider"
-            disabled={isMuted}
-          />
-          <span className="settings__value">{Math.round(musicVolume * 100)}%</span>
-        </label>
-      </div>
+            <div className="settings__control">
+              <label className="settings__label">
+                <span className="settings__label-text">⚔️ Volume de Efeitos</span>
+                <input
+                  type="range"
+                  min="0"
+                  max="1"
+                  step="0.1"
+                  value={soundVolume}
+                  onChange={handleSoundVolumeChange}
+                  className="settings__slider"
+                  disabled={isMuted}
+                />
+                <span className="settings__value">{Math.round(soundVolume * 100)}%</span>
+              </label>
+            </div>
 
-      <p className="settings__hint">
-        💡 Dica: Use os controles acima para ajustar o volume de diferentes tipos de som
-      </p>
+            <div className="settings__control">
+              <label className="settings__label">
+                <span className="settings__label-text">🎵 Volume de Música</span>
+                <input
+                  type="range"
+                  min="0"
+                  max="1"
+                  step="0.1"
+                  value={musicVolume}
+                  onChange={handleMusicVolumeChange}
+                  className="settings__slider"
+                  disabled={isMuted}
+                />
+                <span className="settings__value">{Math.round(musicVolume * 100)}%</span>
+              </label>
+            </div>
+          </>
+        )}
+
+        {activeTab === 'jogo' && (
+          <div className="settings__coming-soon">
+            <span className="settings__coming-soon-icon">🚧</span>
+            <p className="settings__coming-soon-title">Em breve</p>
+            <p className="settings__coming-soon-desc">
+              Dificuldade, velocidade de animação e outras opções de jogo.
+            </p>
+          </div>
+        )}
+
+        {activeTab === 'display' && (
+          <div className="settings__coming-soon">
+            <span className="settings__coming-soon-icon">🚧</span>
+            <p className="settings__coming-soon-title">Em breve</p>
+            <p className="settings__coming-soon-desc">
+              Tamanho de texto, alto contraste e outras opções de exibição.
+            </p>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

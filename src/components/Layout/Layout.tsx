@@ -17,7 +17,7 @@ export function Layout({ children }: LayoutProps) {
         <button
           className="layout__settings-btn"
           onClick={() => setShowSettings(!showSettings)}
-          title="Configurações de Som"
+          title="Configurações"
         >
           ⚙️
         </button>

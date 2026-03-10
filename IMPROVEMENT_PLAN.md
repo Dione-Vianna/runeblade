@@ -225,11 +225,11 @@
 - `src/components/Settings/Settings.css`
 
 **Tarefas:**
-- [ ] Renomear titulo do modal para "Configuracoes" (sem "de Som")
-- [ ] Criar estrutura de abas/secoes: Som | Jogo | Display
-- [ ] Secao Som: manter sliders existentes
-- [ ] Secao Jogo: placeholder com "Em breve" (dificuldade, velocidade de animacao)
-- [ ] Secao Display: placeholder com "Em breve" (tamanho de texto, alto contraste)
+- [x] Renomear titulo do modal para "Configuracoes" (sem "de Som")
+- [x] Criar estrutura de abas/secoes: Som | Jogo | Display
+- [x] Secao Som: manter sliders existentes
+- [x] Secao Jogo: placeholder com "Em breve" (dificuldade, velocidade de animacao)
+- [x] Secao Display: placeholder com "Em breve" (tamanho de texto, alto contraste)
 - [ ] Ou alternativa simples: trocar icone do header de engrenagem para alto-falante
 
 ---

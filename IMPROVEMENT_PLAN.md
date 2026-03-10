@@ -262,10 +262,10 @@
 - `src/components/Board/Board.css`
 
 **Tarefas:**
-- [ ] Unificar info de turno em uma unica pill: `"Turno 1 · 🎮 Sua vez"`
-- [ ] Pill posicionada entre inimigo e jogador, tamanho compacto
-- [ ] Remover grid row dedicada ao centro — usar `gap` e posicao absoluta/relative
-- [ ] Espaco liberado absorvido pelas areas de inimigo e jogador
+- [x] Unificar info de turno em uma unica pill: `"Turno 1 · 🎮 Sua vez"`
+- [x] Pill posicionada entre inimigo e jogador, tamanho compacto
+- [x] Remover grid row dedicada ao centro — usar `gap` e posicao absoluta/relative
+- [x] Espaco liberado absorvido pelas areas de inimigo e jogador
 - [ ] Opcao futura: usar espaco para combat log lateral
 
 ---

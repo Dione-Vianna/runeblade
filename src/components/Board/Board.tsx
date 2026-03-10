@@ -182,25 +182,9 @@ export function Board({
         )}
       </div>
 
-      {/* Área central compacta - pill de turno */}
-      <div className="board__center">
-        <div className="board__center-row">
-          {onFlee && !isGameOver && (
-            <button
-              className="flee-btn"
-              onClick={() => setFleeConfirmOpen(true)}
-              disabled={!isPlayerTurn}
-              title="Abandonar combate"
-            >
-              🚪 Fugir
-            </button>
-          )}
-          <div className={`turn-pill ${isPlayerTurn ? 'turn-pill--player' : 'turn-pill--enemy'}`}>
-            Turno {round} · {isPlayerTurn ? '🎮 Sua vez' : '👹 Turno do inimigo'}
-          </div>
-        </div>
-
-        {isGameOver && (
+      {/* Game Over - overlay absoluto */}
+      {isGameOver && (
+        <div className="board__game-over-overlay">
           <div className={`game-over ${isVictory ? 'game-over--victory victory-animation' : 'game-over--defeat defeat-animation'}`}>
             <h2 className="game-over__title">
               {isVictory ? '🏆 Vitória!' : '💀 Derrota'}
@@ -212,36 +196,57 @@ export function Board({
             </p>
             <RestartButton onClick={onRestart} />
           </div>
-        )}
-      </div>
+        </div>
+      )}
 
       {/* Área do jogador */}
       <div className="board__player-area">
-        <div className={`player-panel ${damageAnimation ? 'damage-taken' : ''} ${healAnimation ? 'player-panel--healed' : ''}`}>
-          <div className="player-panel__portrait">
-            <span className="player-panel__emoji">🧙</span>
-          </div>
-          <div className="player-panel__info">
-            <h2 className="player-panel__name">Herói</h2>
-            <HealthBar current={player.hp} max={player.maxHp} type="health" />
-            <div className="player-panel__stats">
-              <ManaBar current={player.mana} max={player.maxMana} />
-              <ArmorDisplay armor={player.armor} />
+        {/* Strip compacta: pill de turno + botão fugir */}
+        {!isGameOver && (
+          <div className="board__battle-strip">
+            {onFlee && (
+              <button
+                className="flee-btn"
+                onClick={() => setFleeConfirmOpen(true)}
+                disabled={!isPlayerTurn}
+                title="Abandonar combate"
+              >
+                🚪 Fugir
+              </button>
+            )}
+            <div className={`turn-pill ${isPlayerTurn ? 'turn-pill--player' : 'turn-pill--enemy'}`}>
+              Turno {round} · {isPlayerTurn ? '🎮 Sua vez' : '👹 Turno do inimigo'}
             </div>
-            <StatusEffects effects={player.statusEffects} />
           </div>
-        </div>
+        )}
 
-        <div className="player-deck-info">
-          <div className="deck-pile">
-            <span className="deck-pile__icon">📚</span>
-            <span className="deck-pile__count">{player.deck.length}</span>
-            <span className="deck-pile__label">Deck</span>
+        <div className="board__player-panels">
+          <div className={`player-panel ${damageAnimation ? 'damage-taken' : ''} ${healAnimation ? 'player-panel--healed' : ''}`}>
+            <div className="player-panel__portrait">
+              <span className="player-panel__emoji">🧙</span>
+            </div>
+            <div className="player-panel__info">
+              <h2 className="player-panel__name">Herói</h2>
+              <HealthBar current={player.hp} max={player.maxHp} type="health" />
+              <div className="player-panel__stats">
+                <ManaBar current={player.mana} max={player.maxMana} />
+                <ArmorDisplay armor={player.armor} />
+              </div>
+              <StatusEffects effects={player.statusEffects} />
+            </div>
           </div>
-          <div className="deck-pile deck-pile--discard">
-            <span className="deck-pile__icon">🗑️</span>
-            <span className="deck-pile__count">{player.discardPile.length}</span>
-            <span className="deck-pile__label">Descarte</span>
+
+          <div className="player-deck-info">
+            <div className="deck-pile">
+              <span className="deck-pile__icon">📚</span>
+              <span className="deck-pile__count">{player.deck.length}</span>
+              <span className="deck-pile__label">Deck</span>
+            </div>
+            <div className="deck-pile deck-pile--discard">
+              <span className="deck-pile__icon">🗑️</span>
+              <span className="deck-pile__count">{player.discardPile.length}</span>
+              <span className="deck-pile__label">Descarte</span>
+            </div>
           </div>
         </div>
       </div>

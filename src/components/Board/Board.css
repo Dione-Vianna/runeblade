@@ -1,7 +1,7 @@
 .board {
   flex: 1;
   display: grid;
-  grid-template-rows: auto auto 1fr auto;
+  grid-template-rows: auto 1fr auto;
   gap: 10px;
   padding: 20px;
   max-width: 1200px;
@@ -115,19 +115,25 @@
   50% { opacity: 0.75; }
 }
 
-/* Área central */
-.board__center {
+/* Strip compacta de turno (dentro da área do jogador) */
+.board__battle-strip {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 15px;
-  padding: var(--space-xs) 0;
+  justify-content: center;
+  gap: var(--space-md);
+  padding: var(--space-xs) 0 var(--space-sm);
 }
 
-.board__center-row {
+/* Overlay de game-over sobre o board inteiro */
+.board__game-over-overlay {
+  position: absolute;
+  inset: 0;
   display: flex;
   align-items: center;
-  gap: var(--space-md);
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 50;
+  border-radius: 15px;
 }
 
 /* Botão Fugir */
@@ -284,9 +290,10 @@
 /* Área do jogador */
 .board__player-area {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 30px;
+  gap: var(--space-md);
 }
 
 .player-panel {
@@ -331,6 +338,13 @@
   display: flex;
   gap: 15px;
   align-items: center;
+}
+
+/* Wrapper horizontal: player-panel + deck info */
+.board__player-panels {
+  display: flex;
+  align-items: center;
+  gap: 30px;
 }
 
 /* Deck info */

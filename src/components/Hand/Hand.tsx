@@ -10,16 +10,22 @@ interface HandProps {
 }
 
 export function Hand({ cards, onPlayCard, canPlayCard, disabled = false }: HandProps) {
+  const total = cards.length;
+  const stepDeg = total > 6 ? 2.5 : 4;
+
   return (
     <div className="hand">
       <div className="hand__cards">
-        {cards.map((card, index) => (
+        {cards.map((card, index) => {
+          const rotation = (index - (total - 1) / 2) * stepDeg;
+          const yOffset = Math.abs(rotation) * 2;
+          return (
           <div
             key={card.instanceId}
             className="hand__card"
             style={{
-              '--index': index,
-              '--total': cards.length
+              '--rotation': `${rotation}deg`,
+              '--y-offset': `${yOffset}px`,
             } as React.CSSProperties}
           >
             <Card
@@ -29,7 +35,8 @@ export function Hand({ cards, onPlayCard, canPlayCard, disabled = false }: HandP
               isPlayable={canPlayCard(card)}
             />
           </div>
-        ))}
+          );
+        })}
       </div>
       {cards.length === 0 && (
         <div className="hand__empty">Sem cartas na mão</div>

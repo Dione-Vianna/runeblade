@@ -329,19 +329,19 @@
 - `src/pages/ShopPage/ShopPage.css`
 
 **Tarefas:**
-- [ ] Envolver todos os `:hover` em `@media (hover: hover)`:
+- [x] Envolver todos os `:hover` em `@media (hover: hover)`:
   ```css
   @media (hover: hover) {
     .card:hover { transform: translateY(-10px) scale(1.05); }
   }
   ```
-- [ ] Adicionar `:active` states para todos os elementos interativos:
+- [x] Adicionar `:active` states para todos os elementos interativos:
   ```css
   .card:active:not(.card--disabled) {
     transform: scale(0.95);
     box-shadow: 0 0 20px rgba(255,255,255,0.2);
   }
   ```
-- [ ] Adicionar `touch-action: manipulation` em cartas, botoes, nodes do mapa
-- [ ] Adicionar `-webkit-tap-highlight-color: transparent` globalmente
+- [x] Adicionar `touch-action: manipulation` em cartas, botoes, nodes do mapa
+- [x] Adicionar `-webkit-tap-highlight-color: transparent` globalmente
 - [ ] Testar em iOS Safari e Chrome Android (ou via DevTools device mode)

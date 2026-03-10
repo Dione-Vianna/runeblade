@@ -96,12 +96,20 @@
   transition: all 0.3s ease;
   position: relative;
   cursor: pointer;
+  touch-action: manipulation;
 }
 
-.shop-item:hover:not(.shop-item--sold):not(.shop-item--disabled) {
-  transform: translateY(-4px);
-  border-color: #4a4a6a;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+@media (hover: hover) {
+  .shop-item:hover:not(.shop-item--sold):not(.shop-item--disabled) {
+    transform: translateY(-4px);
+    border-color: #4a4a6a;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  }
+}
+
+.shop-item:active:not(.shop-item--sold):not(.shop-item--disabled) {
+  transform: scale(0.97);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
 .shop-item--sold {
@@ -231,11 +239,18 @@
   transition: all 0.2s ease;
   background: linear-gradient(145deg, #3498db, #2980b9);
   color: white;
+  touch-action: manipulation;
 }
 
-.shop-item__buy-btn:hover:not(:disabled) {
-  background: linear-gradient(145deg, #2980b9, #3498db);
-  transform: scale(1.02);
+@media (hover: hover) {
+  .shop-item__buy-btn:hover:not(:disabled) {
+    background: linear-gradient(145deg, #2980b9, #3498db);
+    transform: scale(1.02);
+  }
+}
+
+.shop-item__buy-btn:active:not(:disabled) {
+  transform: scale(0.97);
 }
 
 .shop-item__buy-btn:disabled {
@@ -286,8 +301,14 @@
   transition: all 0.2s ease;
 }
 
-.deck-card:hover {
-  background: rgba(255, 255, 255, 0.1);
+@media (hover: hover) {
+  .deck-card:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+}
+
+.deck-card:active {
+  background: rgba(255, 255, 255, 0.15);
 }
 
 .deck-card--common {
@@ -337,11 +358,20 @@
   font-size: 0.75rem;
   cursor: pointer;
   transition: all 0.2s ease;
+  touch-action: manipulation;
 }
 
-.deck-card__sell-btn:hover:not(:disabled) {
+@media (hover: hover) {
+  .deck-card__sell-btn:hover:not(:disabled) {
+    background: #e74c3c;
+    color: white;
+  }
+}
+
+.deck-card__sell-btn:active:not(:disabled) {
   background: #e74c3c;
   color: white;
+  transform: scale(0.95);
 }
 
 .deck-card__sell-btn:disabled {
@@ -391,11 +421,19 @@
   cursor: pointer;
   transition: all 0.2s ease;
   font-size: 0.85rem;
+  touch-action: manipulation;
 }
 
-.collection__filter-btn:hover {
-  border-color: #666;
-  color: #aaa;
+@media (hover: hover) {
+  .collection__filter-btn:hover {
+    border-color: #666;
+    color: #aaa;
+  }
+}
+
+.collection__filter-btn:active {
+  border-color: #888;
+  color: #ccc;
 }
 
 .collection__filter-btn--active {
@@ -417,11 +455,19 @@
   border: 2px solid #333;
   cursor: pointer;
   transition: all 0.2s ease;
+  touch-action: manipulation;
 }
 
-.collection-card:hover:not(.collection-card--locked) {
-  transform: translateY(-2px);
-  border-color: #4a4a6a;
+@media (hover: hover) {
+  .collection-card:hover:not(.collection-card--locked) {
+    transform: translateY(-2px);
+    border-color: #4a4a6a;
+  }
+}
+
+.collection-card:active:not(.collection-card--locked) {
+  transform: scale(0.97);
+  border-color: #5a5a7a;
 }
 
 .collection-card--locked {

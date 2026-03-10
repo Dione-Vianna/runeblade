@@ -12,15 +12,19 @@
   transition: all 0.2s ease;
   text-transform: uppercase;
   letter-spacing: 1px;
+  touch-action: manipulation;
 }
 
-.btn:hover:not(.btn--disabled) {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+@media (hover: hover) {
+  .btn:hover:not(.btn--disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
 }
 
 .btn:active:not(.btn--disabled) {
-  transform: translateY(0);
+  transform: scale(0.96);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.15);
 }
 
 .btn--disabled {
@@ -34,8 +38,10 @@
   border: 2px solid #5599ff;
 }
 
-.btn--primary:hover:not(.btn--disabled) {
-  background: linear-gradient(145deg, #5599ff, #4477dd);
+@media (hover: hover) {
+  .btn--primary:hover:not(.btn--disabled) {
+    background: linear-gradient(145deg, #5599ff, #4477dd);
+  }
 }
 
 .btn--secondary {
@@ -44,8 +50,10 @@
   border: 2px solid #555;
 }
 
-.btn--secondary:hover:not(.btn--disabled) {
-  background: linear-gradient(145deg, #555, #444);
+@media (hover: hover) {
+  .btn--secondary:hover:not(.btn--disabled) {
+    background: linear-gradient(145deg, #555, #444);
+  }
 }
 
 .btn--danger {
@@ -54,8 +62,10 @@
   border: 2px solid #ff5555;
 }
 
-.btn--danger:hover:not(.btn--disabled) {
-  background: linear-gradient(145deg, #ff5555, #dd4444);
+@media (hover: hover) {
+  .btn--danger:hover:not(.btn--disabled) {
+    background: linear-gradient(145deg, #ff5555, #dd4444);
+  }
 }
 
 .btn--end-turn {
@@ -66,9 +76,11 @@
   font-size: 18px;
 }
 
-.btn--end-turn:hover:not(.btn--disabled) {
-  background: linear-gradient(145deg, #55bb55, #449944);
-  box-shadow: 0 0 20px rgba(68, 170, 68, 0.4);
+@media (hover: hover) {
+  .btn--end-turn:hover:not(.btn--disabled) {
+    background: linear-gradient(145deg, #55bb55, #449944);
+    box-shadow: 0 0 20px rgba(68, 170, 68, 0.4);
+  }
 }
 
 .btn--restart {
@@ -77,8 +89,10 @@
   border: 2px solid #bb55bb;
 }
 
-.btn--restart:hover {
-  background: linear-gradient(145deg, #bb55bb, #994499);
+@media (hover: hover) {
+  .btn--restart:hover {
+    background: linear-gradient(145deg, #bb55bb, #994499);
+  }
 }
 
 .btn__icon {

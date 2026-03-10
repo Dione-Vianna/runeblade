@@ -71,6 +71,7 @@
   cursor: pointer;
   transition: all 0.3s ease;
   z-index: 10;
+  touch-action: manipulation;
 }
 
 .map-node__icon {
@@ -128,8 +129,10 @@
   white-space: nowrap;
 }
 
-.map-node:hover .map-node__tooltip {
-  opacity: 1;
+@media (hover: hover) {
+  .map-node:hover .map-node__tooltip {
+    opacity: 1;
+  }
 }
 
 .map-node__tooltip-name {
@@ -165,6 +168,11 @@
     transform: translate(-50%, -50%) scale(1.2);
     box-shadow: 0 0 30px rgba(255, 255, 255, 0.7);
   }
+}
+
+.map-node--available:active {
+  transform: translate(-50%, -50%) scale(0.92);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
 }
 
 .map-node--available .map-node__pulse {

@@ -204,14 +204,14 @@
 - `src/components/Board/Board.css`
 
 **Tarefas:**
-- [ ] `.card__description`: 10px -> 11px, `line-height: 1.4`
-- [ ] `.card__rarity`: 9px -> 11px
-- [ ] `.card__name`: 12px -> 13px
-- [ ] `.status-effect__duration`: 10px -> 12px
-- [ ] `.deck-pile__label`: 11px -> 12px
-- [ ] `.enemy-panel__intent-label`: cor `#888` -> `#aaa` (contraste 4.6:1)
-- [ ] `.turn-info__round`: cor `#888` -> `#999`
-- [ ] Auditar todos os `color: #666` e `color: #888` — substituir por minimo `#999` em fundos escuros
+- [x] `.card__description`: 10px -> 11px, `line-height: 1.4`
+- [x] `.card__rarity`: 9px -> 11px
+- [x] `.card__name`: 12px -> 13px
+- [x] `.status-effect__duration`: 10px -> 12px
+- [x] `.deck-pile__label`: 11px -> 12px
+- [x] `.enemy-panel__intent-label`: cor `#888` -> `#aaa` (contraste 4.6:1)
+- [x] `.turn-info__round`: cor `#888` -> `#999`
+- [x] Auditar todos os `color: #666` e `color: #888` — substituir por minimo `#999` em fundos escuros
 
 ---
 

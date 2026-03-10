@@ -24,7 +24,7 @@
 }
 
 .map-view__act {
-  color: #888;
+  color: #999;
   font-size: 16px;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -263,7 +263,7 @@
   align-items: center;
   gap: 5px;
   font-size: 12px;
-  color: #888;
+  color: #999;
 }
 
 .map-view__legend-icon {

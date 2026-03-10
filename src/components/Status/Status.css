@@ -140,8 +140,8 @@
 }
 
 .status-effect__duration {
-  color: #888;
-  font-size: 10px;
+  color: #999;
+  font-size: 12px;
 }
 
 .status-effect--poison {

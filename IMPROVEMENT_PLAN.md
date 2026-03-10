@@ -183,14 +183,14 @@
 - `src/components/Card/Card.css`
 
 **Tarefas:**
-- [ ] Adicionar faixa colorida no header da carta (8px height, cor do tipo, full width)
-- [ ] Aumentar saturacao dos backgrounds:
+- [x] Adicionar faixa colorida no header da carta (8px height, cor do tipo, full width)
+- [x] Aumentar saturacao dos backgrounds:
   - Attack: `#4a1a1a` -> `#1a1010` (mais vermelho)
   - Defense: `#1a2a4a` -> `#101a2a` (mais azul)
   - Magic: `#3a1a4a` -> `#1a102a` (mais roxo)
-- [ ] Aumentar borda de 2px para 3px
-- [ ] Icone de tipo: 20px -> 26px
-- [ ] Adicionar inner glow sutil (`inset box-shadow`) na cor do tipo
+- [x] Aumentar borda de 2px para 3px
+- [x] Icone de tipo: 20px -> 26px
+- [x] Adicionar inner glow sutil (`inset box-shadow`) na cor do tipo
 
 ---
 

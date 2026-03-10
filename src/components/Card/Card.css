@@ -3,16 +3,19 @@
   height: 200px;
   border-radius: 10px;
   padding: 10px;
+  padding-top: 18px;
   display: flex;
   flex-direction: column;
   cursor: pointer;
   transition: transform 0.2s, box-shadow 0.2s;
   background: var(--color-surface-card);
-  border: 2px solid #4a4a6a;
+  border: 3px solid #4a4a6a;
   color: #fff;
   font-family: 'Segoe UI', sans-serif;
   position: relative;
   user-select: none;
+  overflow: hidden;
+  box-shadow: var(--rarity-shadow, 0 0 5px rgba(150, 150, 150, 0.3)), var(--type-inner-glow, none);
 }
 
 .card:hover:not(.card--disabled):not(.card--unplayable) {
@@ -44,51 +47,90 @@
   animation: handDeal 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
+/* Faixa colorida no topo da carta por tipo */
+.card--attack::before,
+.card--defense::before,
+.card--magic::before,
+.card--buff::before,
+.card--debuff::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 8px;
+}
+
 /* Cores por tipo */
 .card--attack {
   border-color: var(--color-card-attack);
-  background: linear-gradient(145deg, #3a1a1a, #2a1010);
+  background: linear-gradient(145deg, #4a1010, #2a0808);
+  --type-inner-glow: inset 0 0 20px rgba(255, 68, 68, 0.15);
+}
+
+.card--attack::before {
+  background: var(--color-card-attack);
 }
 
 .card--defense {
   border-color: var(--color-card-defense);
-  background: linear-gradient(145deg, #1a2a3a, #101a2a);
+  background: linear-gradient(145deg, #10204a, #081428);
+  --type-inner-glow: inset 0 0 20px rgba(68, 170, 255, 0.15);
+}
+
+.card--defense::before {
+  background: var(--color-card-defense);
 }
 
 .card--magic {
   border-color: var(--color-card-magic);
-  background: linear-gradient(145deg, #2a1a3a, #1a102a);
+  background: linear-gradient(145deg, #28104a, #180828);
+  --type-inner-glow: inset 0 0 20px rgba(170, 68, 255, 0.15);
+}
+
+.card--magic::before {
+  background: var(--color-card-magic);
 }
 
 .card--buff {
   border-color: var(--color-card-buff);
-  background: linear-gradient(145deg, #1a3a1a, #102a10);
+  background: linear-gradient(145deg, #103a10, #082808);
+  --type-inner-glow: inset 0 0 20px rgba(68, 255, 68, 0.15);
+}
+
+.card--buff::before {
+  background: var(--color-card-buff);
 }
 
 .card--debuff {
   border-color: var(--color-card-debuff);
-  background: linear-gradient(145deg, #3a2a1a, #2a1a10);
+  background: linear-gradient(145deg, #3a2010, #281408);
+  --type-inner-glow: inset 0 0 20px rgba(255, 136, 68, 0.15);
 }
 
-/* Brilho por raridade */
+.card--debuff::before {
+  background: var(--color-card-debuff);
+}
+
+/* Brilho por raridade — usa CSS var para combinar com inner glow do tipo */
 .card--common {
-  box-shadow: 0 0 5px rgba(150, 150, 150, 0.3);
+  --rarity-shadow: 0 0 5px rgba(150, 150, 150, 0.3);
 }
 
 .card--uncommon {
-  box-shadow: 0 0 10px rgba(68, 255, 68, 0.3);
+  --rarity-shadow: 0 0 10px rgba(68, 255, 68, 0.3);
 }
 
 .card--rare {
-  box-shadow: 0 0 15px rgba(68, 170, 255, 0.4);
+  --rarity-shadow: 0 0 15px rgba(68, 170, 255, 0.4);
 }
 
 .card--epic {
-  box-shadow: 0 0 20px rgba(170, 68, 255, 0.5);
+  --rarity-shadow: 0 0 20px rgba(170, 68, 255, 0.5);
 }
 
 .card--legendary {
-  box-shadow: 0 0 25px rgba(255, 215, 0, 0.6);
+  --rarity-shadow: 0 0 25px rgba(255, 215, 0, 0.6);
   border-color: var(--color-gold);
 }
 
@@ -114,7 +156,7 @@
 }
 
 .card__type-icon {
-  font-size: 20px;
+  font-size: 26px;
 }
 
 .card__name {

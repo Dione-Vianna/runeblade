@@ -1,3 +1,5 @@
+import { RefreshCw, SkipForward } from 'lucide-react';
+
 import { useSoundManager } from '../../hooks';
 import './Buttons.css';
 
@@ -21,7 +23,7 @@ export function EndTurnButton({ onClick, disabled = false }: EndTurnButtonProps)
       disabled={disabled}
     >
       <span className="btn__text">Finalizar Turno</span>
-      <span className="btn__icon">⏭️</span>
+      <span className="btn__icon"><SkipForward size={16} /></span>
     </button>
   );
 }
@@ -40,7 +42,7 @@ export function RestartButton({ onClick }: RestartButtonProps) {
 
   return (
     <button className="btn btn--restart" onClick={handleClick}>
-      <span className="btn__icon">🔄</span>
+      <span className="btn__icon"><RefreshCw size={16} /></span>
       <span className="btn__text">Reiniciar</span>
     </button>
   );

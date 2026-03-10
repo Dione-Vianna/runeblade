@@ -1,3 +1,4 @@
+import { BookOpen, DoorOpen, Shield, Sword, Trash2, TrendingDown, TrendingUp } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 
 import type { CardInstance, Enemy, Player } from '../../game/types';
@@ -170,10 +171,10 @@ export function Board({
                 <div className="enemy-panel__intent">
                   <span className="enemy-panel__intent-label">Próxima ação:</span>
                   <span className="enemy-panel__intent-action">
-                    {enemy.intent.type === 'attack' && `⚔️ ${enemy.intent.value}`}
-                    {enemy.intent.type === 'defend' && `🛡️ ${enemy.intent.value}`}
-                    {enemy.intent.type === 'buff' && '⬆️ Buff'}
-                    {enemy.intent.type === 'debuff' && '⬇️ Debuff'}
+                    {enemy.intent.type === 'attack' && <><Sword size={14} /> {enemy.intent.value}</>}
+                    {enemy.intent.type === 'defend' && <><Shield size={14} /> {enemy.intent.value}</>}
+                    {enemy.intent.type === 'buff' && <><TrendingUp size={14} /> Buff</>}
+                    {enemy.intent.type === 'debuff' && <><TrendingDown size={14} /> Debuff</>}
                   </span>
                 </div>
               )}
@@ -211,7 +212,7 @@ export function Board({
                 disabled={!isPlayerTurn}
                 title="Abandonar combate"
               >
-                🚪 Fugir
+                <DoorOpen size={14} /> Fugir
               </button>
             )}
             <div className={`turn-pill ${isPlayerTurn ? 'turn-pill--player' : 'turn-pill--enemy'}`}>
@@ -238,12 +239,12 @@ export function Board({
 
           <div className="player-deck-info">
             <div className="deck-pile">
-              <span className="deck-pile__icon">📚</span>
+              <span className="deck-pile__icon"><BookOpen size={18} /></span>
               <span className="deck-pile__count">{player.deck.length}</span>
               <span className="deck-pile__label">Deck</span>
             </div>
             <div className="deck-pile deck-pile--discard">
-              <span className="deck-pile__icon">🗑️</span>
+              <span className="deck-pile__icon"><Trash2 size={18} /></span>
               <span className="deck-pile__count">{player.discardPile.length}</span>
               <span className="deck-pile__label">Descarte</span>
             </div>

@@ -78,6 +78,7 @@
 
 .enemy-panel__name {
   margin: 0;
+  font-family: var(--font-display);
   color: #ff8888;
   font-size: 20px;
 }
@@ -258,6 +259,7 @@
 }
 
 .game-over__title {
+  font-family: var(--font-display);
   font-size: 36px;
   margin: 0 0 10px 0;
 }
@@ -330,6 +332,7 @@
 
 .player-panel__name {
   margin: 0;
+  font-family: var(--font-display);
   color: #88ccff;
   font-size: 18px;
 }

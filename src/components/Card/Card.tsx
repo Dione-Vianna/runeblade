@@ -1,3 +1,5 @@
+import { HelpCircle, Shield, Sparkles, Sword, TrendingDown, TrendingUp } from 'lucide-react';
+
 import type { CardInstance } from '../../game/types';
 import { useSoundManager } from '../../hooks';
 import './Card.css';
@@ -43,12 +45,12 @@ export function Card({ card, onClick, disabled = false, isPlayable = true }: Car
 
   const getTypeIcon = () => {
     switch (card.type) {
-      case 'attack': return '⚔️';
-      case 'defense': return '🛡️';
-      case 'magic': return '✨';
-      case 'buff': return '⬆️';
-      case 'debuff': return '⬇️';
-      default: return '❓';
+      case 'attack': return <Sword size={18} />;
+      case 'defense': return <Shield size={18} />;
+      case 'magic': return <Sparkles size={18} />;
+      case 'buff': return <TrendingUp size={18} />;
+      case 'debuff': return <TrendingDown size={18} />;
+      default: return <HelpCircle size={18} />;
     }
   };
 

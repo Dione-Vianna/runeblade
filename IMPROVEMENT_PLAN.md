@@ -279,18 +279,18 @@
 - `package.json` (nova dependencia)
 
 **Tarefas:**
-- [ ] Instalar `lucide-react` (leve, tree-shakeable)
-- [ ] Criar mapeamento de emojis para icones:
+- [x] Instalar `lucide-react` (leve, tree-shakeable)
+- [x] Criar mapeamento de emojis para icones:
   - ⚔️ -> `<Sword />`
   - 🛡️ -> `<Shield />`
   - ✨ -> `<Sparkles />`
   - ❤️ -> `<Heart />`
   - 💎 -> `<Gem />`
-  - ⚙️ -> `<Settings />`
+  - ⚙️ -> `<Settings2 />`
   - 💰 -> `<Coins />`
-- [ ] Substituir em: Card.tsx, Board.tsx, Status.tsx, Buttons.tsx, Map.tsx
-- [ ] Manter emojis apenas em: retratos (👹🧙👑), decoracao de texto
-- [ ] Garantir que icones SVG herdam `currentColor` para consistencia com tema
+- [x] Substituir em: Card.tsx, Board.tsx, Status.tsx, Buttons.tsx, Map.tsx, FloatingNumber.tsx, Layout.tsx, Settings.tsx, ShopPage.tsx
+- [x] Manter emojis apenas em: retratos (👹🧙👑), decoracao de texto (🛒, 🏆, 💀, 🎮, legenda do mapa)
+- [x] Garantir que icones SVG herdam `currentColor` para consistencia com tema
 
 ---
 
@@ -306,15 +306,15 @@
 - `src/components/Board/Board.css`
 
 **Tarefas:**
-- [ ] Adicionar Google Font `Cinzel` (serif, medieval elegante) para titulos
-- [ ] Adicionar no `<head>` do `index.html`:
+- [x] Adicionar Google Font `Cinzel` (serif, medieval elegante) para titulos
+- [x] Adicionar no `<head>` do `index.html`:
   ```html
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
   ```
-- [ ] Criar token: `--font-display: 'Cinzel', serif`
-- [ ] Aplicar em: titulo do jogo, nomes de cartas, nomes de inimigos, nomes de atos, titulos h1/h2
-- [ ] Manter system font para: descricoes, labels, botoes, UI funcional
-- [ ] Testar performance (font-display: swap para evitar FOIT)
+- [x] Criar token: `--font-display: 'Cinzel', serif`
+- [x] Aplicar em: titulo do jogo, nomes de cartas, nomes de inimigos, nomes de atos, titulos h1/h2
+- [x] Manter system font para: descricoes, labels, botoes, UI funcional
+- [x] Testar performance (font-display: swap para evitar FOIT)
 
 ---
 

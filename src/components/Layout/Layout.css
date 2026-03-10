@@ -16,6 +16,7 @@
 
 .layout__title {
   margin: 0;
+  font-family: var(--font-display);
   text-align: center;
   color: #ffd700;
   font-size: 28px;

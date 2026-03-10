@@ -1,3 +1,4 @@
+import { HeartPulse, Shield, Sword } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 export interface FloatingNumberProps {
@@ -28,7 +29,7 @@ export function FloatingNumber({
   if (!isVisible) return null;
 
   const displayValue = type === 'damage' ? `-${value}` : `+${value}`;
-  const emoji = type === 'damage' ? '⚔️' : type === 'healing' ? '💚' : '🛡️';
+  const icon = type === 'damage' ? <Sword size={14} /> : type === 'healing' ? <HeartPulse size={14} /> : <Shield size={14} />;
 
   return (
     <div
@@ -38,7 +39,7 @@ export function FloatingNumber({
         top: `${y}px`,
       }}
     >
-      {emoji} {displayValue}
+      {icon} {displayValue}
     </div>
   );
 }

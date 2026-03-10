@@ -1,3 +1,5 @@
+import { Check } from 'lucide-react';
+
 import { MapEngine } from '../../game/core';
 import type { GameMap, MapNode as MapNodeType, MapPath } from '../../game/types';
 import './Map.css';
@@ -42,7 +44,7 @@ export function MapNode({ node, onClick, isConnected = false }: MapNodeProps) {
       <div className="map-node__icon">{icon}</div>
       <div className="map-node__pulse" />
       {node.status === 'completed' && (
-        <div className="map-node__checkmark">✓</div>
+        <div className="map-node__checkmark"><Check size={14} /></div>
       )}
       <div className="map-node__tooltip">
         <span className="map-node__tooltip-name">{name}</span>

@@ -1,3 +1,5 @@
+import { Dumbbell, Droplets, Flame, Gem, HeartPulse, Shield, Skull, Swords, Target, Zap } from 'lucide-react';
+
 import type { StatusEffect } from '../../game/types';
 import './Status.css';
 
@@ -45,7 +47,7 @@ export function ManaBar({ current, max }: ManaBarProps) {
 
   return (
     <div className="mana-bar">
-      <span className="mana-bar__icon">💎</span>
+      <span className="mana-bar__icon"><Gem size={14} /></span>
       <div className="mana-bar__orbs">{manaOrbs}</div>
       <span className="mana-bar__text">{current}/{max}</span>
     </div>
@@ -61,7 +63,7 @@ export function ArmorDisplay({ armor }: ArmorDisplayProps) {
 
   return (
     <div className="armor-display">
-      <span className="armor-display__icon">🛡️</span>
+      <span className="armor-display__icon"><Shield size={14} /></span>
       <span className="armor-display__value">{armor}</span>
     </div>
   );
@@ -76,15 +78,15 @@ export function StatusEffects({ effects }: StatusEffectsProps) {
 
   const getEffectIcon = (type: StatusEffect['type']) => {
     switch (type) {
-      case 'poison': return '☠️';
-      case 'bleed': return '🩸';
-      case 'burn': return '🔥';
-      case 'weakness': return '💔';
-      case 'strength': return '💪';
-      case 'regeneration': return '💚';
-      case 'vulnerable': return '🎯';
-      case 'shield': return '🛡️';
-      default: return '❓';
+      case 'poison': return <Skull size={12} />;
+      case 'bleed': return <Droplets size={12} />;
+      case 'burn': return <Flame size={12} />;
+      case 'weakness': return <Zap size={12} />;
+      case 'strength': return <Dumbbell size={12} />;
+      case 'regeneration': return <HeartPulse size={12} />;
+      case 'vulnerable': return <Target size={12} />;
+      case 'shield': return <Shield size={12} />;
+      default: return <Swords size={12} />;
     }
   };
 

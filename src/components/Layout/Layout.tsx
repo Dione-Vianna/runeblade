@@ -1,3 +1,4 @@
+import { Settings2, X } from 'lucide-react';
 import type { ReactNode } from 'react';
 import { useState } from 'react';
 import { Settings } from '../Settings';
@@ -19,7 +20,7 @@ export function Layout({ children }: LayoutProps) {
           onClick={() => setShowSettings(!showSettings)}
           title="Configurações"
         >
-          ⚙️
+          <Settings2 size={20} />
         </button>
       </header>
 
@@ -32,7 +33,7 @@ export function Layout({ children }: LayoutProps) {
               onClick={() => setShowSettings(false)}
               title="Fechar"
             >
-              ✕
+              <X size={18} />
             </button>
             <Settings />
           </div>

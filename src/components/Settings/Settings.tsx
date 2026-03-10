@@ -1,3 +1,4 @@
+import { Monitor, Music, Settings2, Sword, Volume2, VolumeX } from 'lucide-react';
 import { useState } from 'react';
 import { useSoundManager } from '../../hooks';
 import './Settings.css';
@@ -40,13 +41,13 @@ export function Settings() {
   return (
     <div className="settings">
       <div className="settings__header">
-        <h2 className="settings__title">⚙️ Configurações</h2>
+        <h2 className="settings__title"><Settings2 size={18} /> Configurações</h2>
         <button
           className={`settings__mute-btn ${isMuted ? 'settings__mute-btn--muted' : ''}`}
           onClick={handleToggleMute}
           title={isMuted ? 'Ativar som' : 'Silenciar som'}
         >
-          {isMuted ? '🔇' : '🔊'}
+          {isMuted ? <VolumeX size={18} /> : <Volume2 size={18} />}
         </button>
       </div>
 
@@ -55,7 +56,7 @@ export function Settings() {
           className={`settings__tab ${activeTab === 'som' ? 'settings__tab--active' : ''}`}
           onClick={() => setActiveTab('som')}
         >
-          🔊 Som
+          <Volume2 size={14} /> Som
         </button>
         <button
           className={`settings__tab ${activeTab === 'jogo' ? 'settings__tab--active' : ''}`}
@@ -67,7 +68,7 @@ export function Settings() {
           className={`settings__tab ${activeTab === 'display' ? 'settings__tab--active' : ''}`}
           onClick={() => setActiveTab('display')}
         >
-          🖥️ Display
+          <Monitor size={14} /> Display
         </button>
       </div>
 
@@ -76,7 +77,7 @@ export function Settings() {
           <>
             <div className="settings__control">
               <label className="settings__label">
-                <span className="settings__label-text">🔊 Volume Principal</span>
+                <span className="settings__label-text"><Volume2 size={14} /> Volume Principal</span>
                 <input
                   type="range"
                   min="0"
@@ -93,7 +94,7 @@ export function Settings() {
 
             <div className="settings__control">
               <label className="settings__label">
-                <span className="settings__label-text">⚔️ Volume de Efeitos</span>
+                <span className="settings__label-text"><Sword size={14} /> Volume de Efeitos</span>
                 <input
                   type="range"
                   min="0"
@@ -110,7 +111,7 @@ export function Settings() {
 
             <div className="settings__control">
               <label className="settings__label">
-                <span className="settings__label-text">🎵 Volume de Música</span>
+                <span className="settings__label-text"><Music size={14} /> Volume de Música</span>
                 <input
                   type="range"
                   min="0"

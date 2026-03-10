@@ -1,3 +1,4 @@
+import { BookOpen, Coins, Gem, HelpCircle, Lock, Package, RefreshCw, Shield, Sparkles, Sword, TrendingDown, TrendingUp } from 'lucide-react';
 import { useCallback, useState } from 'react';
 
 import { GameButton } from '../../components/Buttons';
@@ -20,14 +21,14 @@ interface ShopItemCardProps {
 function ShopItemCard({ item, canAfford, onBuy }: ShopItemCardProps) {
   const { card, price, originalPrice, discount, sold } = item;
 
-  const getTypeIcon = (type: CardType): string => {
+  const getTypeIcon = (type: CardType) => {
     switch (type) {
-      case 'attack': return '⚔️';
-      case 'defense': return '🛡️';
-      case 'magic': return '✨';
-      case 'buff': return '⬆️';
-      case 'debuff': return '⬇️';
-      default: return '🃏';
+      case 'attack': return <Sword size={18} />;
+      case 'defense': return <Shield size={18} />;
+      case 'magic': return <Sparkles size={18} />;
+      case 'buff': return <TrendingUp size={18} />;
+      case 'debuff': return <TrendingDown size={18} />;
+      default: return <HelpCircle size={18} />;
     }
   };
 
@@ -49,13 +50,13 @@ function ShopItemCard({ item, canAfford, onBuy }: ShopItemCardProps) {
         {ShopEngine.getRarityIcon(card.rarity)} {ShopEngine.getRarityName(card.rarity)}
       </div>
       <div className="shop-item__description">{card.description}</div>
-      <div className="shop-item__cost">💎 {card.cost} mana</div>
+      <div className="shop-item__cost"><Gem size={12} /> {card.cost} mana</div>
 
       <div className="shop-item__price">
         {discount > 0 && (
-          <span className="shop-item__original-price">💰 {originalPrice}</span>
+          <span className="shop-item__original-price"><Coins size={12} /> {originalPrice}</span>
         )}
-        <span className="shop-item__final-price">💰 {price}</span>
+        <span className="shop-item__final-price"><Coins size={12} /> {price}</span>
       </div>
 
       <button
@@ -79,14 +80,14 @@ interface DeckCardProps {
 }
 
 function DeckCard({ card, count, canSell, onSell }: DeckCardProps) {
-  const getTypeIcon = (type: CardType): string => {
+  const getTypeIcon = (type: CardType) => {
     switch (type) {
-      case 'attack': return '⚔️';
-      case 'defense': return '🛡️';
-      case 'magic': return '✨';
-      case 'buff': return '⬆️';
-      case 'debuff': return '⬇️';
-      default: return '🃏';
+      case 'attack': return <Sword size={16} />;
+      case 'defense': return <Shield size={16} />;
+      case 'magic': return <Sparkles size={16} />;
+      case 'buff': return <TrendingUp size={16} />;
+      case 'debuff': return <TrendingDown size={16} />;
+      default: return <HelpCircle size={16} />;
     }
   };
 
@@ -99,7 +100,7 @@ function DeckCard({ card, count, canSell, onSell }: DeckCardProps) {
         <div className="deck-card__name">
           {card.name} {count > 1 && `x${count}`}
         </div>
-        <div className="deck-card__cost">💎 {card.cost} mana</div>
+        <div className="deck-card__cost"><Gem size={12} /> {card.cost} mana</div>
       </div>
       <button
         className="deck-card__sell-btn"
@@ -107,7 +108,7 @@ function DeckCard({ card, count, canSell, onSell }: DeckCardProps) {
         disabled={!canSell}
         title={canSell ? `Vender por ${sellPrice} ouro` : 'Deck no tamanho mínimo'}
       >
-        💰 {sellPrice}
+        <Coins size={12} /> {sellPrice}
       </button>
     </div>
   );
@@ -123,14 +124,14 @@ interface CollectionCardProps {
 }
 
 function CollectionCard({ card, isUnlocked, isInDeck, onClick }: CollectionCardProps) {
-  const getTypeIcon = (type: CardType): string => {
+  const getTypeIcon = (type: CardType) => {
     switch (type) {
-      case 'attack': return '⚔️';
-      case 'defense': return '🛡️';
-      case 'magic': return '✨';
-      case 'buff': return '⬆️';
-      case 'debuff': return '⬇️';
-      default: return '🃏';
+      case 'attack': return <Sword size={16} />;
+      case 'defense': return <Shield size={16} />;
+      case 'magic': return <Sparkles size={16} />;
+      case 'buff': return <TrendingUp size={16} />;
+      case 'debuff': return <TrendingDown size={16} />;
+      default: return <HelpCircle size={16} />;
     }
   };
 
@@ -141,7 +142,7 @@ function CollectionCard({ card, isUnlocked, isInDeck, onClick }: CollectionCardP
       title={isUnlocked ? card.description : 'Carta bloqueada'}
     >
       <div className="collection-card__icon">
-        {isUnlocked ? getTypeIcon(card.type) : '🔒'}
+        {isUnlocked ? getTypeIcon(card.type) : <Lock size={16} />}
       </div>
       <div className="collection-card__name">
         {isUnlocked ? card.name : '???'}
@@ -255,7 +256,7 @@ export function ShopPage({ gold, actId, onSpendGold, onAddGold, onClose }: ShopP
         <div className="shop-page__header">
           <h1 className="shop-page__title">🛒 Loja</h1>
           <div className="shop-page__gold">
-            <span>💰</span>
+            <span><Coins size={16} /></span>
             <span>{gold}</span>
           </div>
         </div>
@@ -272,7 +273,7 @@ export function ShopPage({ gold, actId, onSpendGold, onAddGold, onClose }: ShopP
                     onClick={handleRefresh}
                     disabled={!canRefresh}
                   >
-                    🔄 Atualizar (💰 {refreshCost})
+                    <RefreshCw size={14} /> Atualizar (<Coins size={12} /> {refreshCost})
                   </GameButton>
                   {currentShop && (
                     <span style={{ color: '#888', fontSize: '0.85rem' }}>
@@ -298,7 +299,7 @@ export function ShopPage({ gold, actId, onSpendGold, onAddGold, onClose }: ShopP
             <div className="collection">
               <div className="collection__header">
                 <h2 className="collection__title">
-                  📚 Coleção ({allCards.filter(c => isCardUnlocked(c.id)).length}/{allCards.length})
+                  <BookOpen size={18} /> Coleção ({allCards.filter(c => isCardUnlocked(c.id)).length}/{allCards.length})
                 </h2>
                 <div className="collection__filter">
                   {(['all', 'common', 'uncommon', 'rare', 'epic', 'legendary'] as const).map(
@@ -333,7 +334,7 @@ export function ShopPage({ gold, actId, onSpendGold, onAddGold, onClose }: ShopP
           <div className="shop-page__sidebar">
             <div className="deck-manager">
               <div className="deck-manager__header">
-                <h3 className="deck-manager__title">📦 Deck Atual</h3>
+                <h3 className="deck-manager__title"><Package size={18} /> Deck Atual</h3>
                 <div className="deck-manager__count">
                   {currentDeck.length} / {maxDeckSize} cartas (mín: {minDeckSize})
                 </div>
@@ -356,7 +357,7 @@ export function ShopPage({ gold, actId, onSpendGold, onAddGold, onClose }: ShopP
 
         <div className="shop-page__actions">
           <GameButton variant="primary" onClick={onClose}>
-            ✅ Sair da Loja
+            Sair da Loja
           </GameButton>
         </div>
       </div>

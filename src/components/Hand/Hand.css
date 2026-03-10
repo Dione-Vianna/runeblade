@@ -42,6 +42,20 @@
   box-shadow: none;
 }
 
+.hand__card--fly-to-enemy {
+  animation: cardFlyToEnemy 0.45s cubic-bezier(0.4, 0, 0.6, 1) forwards;
+  pointer-events: none;
+  z-index: 200;
+  position: relative;
+}
+
+.hand__card--fly-to-self {
+  animation: cardFlyToSelf 0.4s ease-out forwards;
+  pointer-events: none;
+  z-index: 200;
+  position: relative;
+}
+
 .hand__empty {
   color: #666;
   font-size: 18px;

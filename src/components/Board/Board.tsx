@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import type { CardInstance, Enemy, Player } from '../../game/types';
 import { useFloatingNumbers, useSoundManager } from '../../hooks';
@@ -42,6 +42,23 @@ export function Board({
   const [damageAnimation, setDamageAnimation] = useState(false);
   const [healAnimation, setHealAnimation] = useState(false);
   const [enemyDamageAnimation, setEnemyDamageAnimation] = useState(false);
+  const [boardShake, setBoardShake] = useState(false);
+  const [playingCard, setPlayingCard] = useState<{ card: CardInstance; target: 'enemy' | 'self' } | null>(null);
+  const playingCardRef = useRef<{ card: CardInstance; target: 'enemy' | 'self' } | null>(null);
+
+  // Interceptar play de carta: animar antes de chamar onPlayCard
+  const handlePlayCard = (card: CardInstance) => {
+    if (playingCardRef.current) return;
+    const target = ['attack', 'magic', 'debuff'].includes(card.type) ? 'enemy' : 'self';
+    const info = { card, target } as const;
+    playingCardRef.current = info;
+    setPlayingCard(info);
+    setTimeout(() => {
+      playingCardRef.current = null;
+      setPlayingCard(null);
+      onPlayCard(card);
+    }, 420);
+  };
 
   // Detectar mudanças de HP/Armor e criar floating numbers
   useEffect(() => {
@@ -51,6 +68,10 @@ export function Board({
       play('damage');
       setDamageAnimation(true);
       setTimeout(() => setDamageAnimation(false), 300);
+      if (playerHpDiff > 10) {
+        setBoardShake(true);
+        setTimeout(() => setBoardShake(false), 500);
+      }
     }
 
     const playerHealDiff = player.hp - prevPlayerHp;
@@ -81,6 +102,10 @@ export function Board({
       play('attack');
       setEnemyDamageAnimation(true);
       setTimeout(() => setEnemyDamageAnimation(false), 300);
+      if (enemyHpDiff > 10) {
+        setBoardShake(true);
+        setTimeout(() => setBoardShake(false), 500);
+      }
     }
 
     const enemyArmorDiff = enemy.armor - prevEnemyArmor;
@@ -94,7 +119,7 @@ export function Board({
   }, [enemy?.hp, enemy?.armor, addNumber, prevEnemyHp, prevEnemyArmor, enemy, play]);
 
   return (
-    <div className="board">
+    <div className={`board${boardShake ? ' board--shake' : ''}`}>
       {/* Floating Numbers */}
       <div className="board__floating-numbers">
         {numbers.map(num => (
@@ -105,7 +130,7 @@ export function Board({
       {/* Área do inimigo */}
       <div className="board__enemy-area">
         {enemy && (
-          <div className={`enemy-panel ${enemyDamageAnimation ? 'damage-taken' : ''} ${isPlayerTurn ? 'enemy-panel--player-turn' : ''}`}>
+          <div className={`enemy-panel ${enemyDamageAnimation ? 'enemy-panel--hit' : ''} ${isPlayerTurn ? 'enemy-panel--player-turn' : ''}`}>
             <div className="enemy-panel__portrait">
               <span className="enemy-panel__emoji">👹</span>
             </div>
@@ -155,7 +180,7 @@ export function Board({
 
       {/* Área do jogador */}
       <div className="board__player-area">
-        <div className={`player-panel ${damageAnimation ? 'damage-taken' : ''} ${healAnimation ? 'healing-received' : ''}`}>
+        <div className={`player-panel ${damageAnimation ? 'damage-taken' : ''} ${healAnimation ? 'player-panel--healed' : ''}`}>
           <div className="player-panel__portrait">
             <span className="player-panel__emoji">🧙</span>
           </div>
@@ -188,9 +213,11 @@ export function Board({
       <div className="board__hand-area">
         <Hand
           cards={player.hand}
-          onPlayCard={onPlayCard}
+          onPlayCard={handlePlayCard}
           canPlayCard={canPlayCard}
-          disabled={!isPlayerTurn || isGameOver}
+          disabled={!isPlayerTurn || isGameOver || !!playingCard}
+          playingCardId={playingCard?.card.instanceId ?? null}
+          flyTarget={playingCard?.target ?? null}
         />
         {!isGameOver && (
           <div className="board__end-turn-wrapper">

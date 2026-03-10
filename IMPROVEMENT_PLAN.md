@@ -47,12 +47,12 @@
 - `src/hooks/useGameEngine.ts`
 
 **Tarefas:**
-- [ ] Criar animacao `cardFlyToTarget` que move a carta em direcao ao painel do inimigo/jogador
-- [ ] Adicionar classe `.enemy-panel--hit` com flash vermelho + shake de 300ms
-- [ ] Adicionar classe `.player-panel--healed` com flash verde de 300ms
-- [ ] Sincronizar floating numbers para aparecer apos a animacao de voo (delay de ~400ms)
-- [ ] Adicionar screen shake via `transform: translate()` no `.board` para ataques pesados (>10 dano)
-- [ ] Feedback sonoro ja existe — garantir sincronia com animacao visual
+- [x] Criar animacao `cardFlyToTarget` que move a carta em direcao ao painel do inimigo/jogador
+- [x] Adicionar classe `.enemy-panel--hit` com flash vermelho + shake de 300ms
+- [x] Adicionar classe `.player-panel--healed` com flash verde de 300ms
+- [x] Sincronizar floating numbers para aparecer apos a animacao de voo (delay de ~400ms)
+- [x] Adicionar screen shake via `transform: translate()` no `.board` para ataques pesados (>10 dano)
+- [x] Feedback sonoro ja existe — garantir sincronia com animacao visual
 
 ---
 

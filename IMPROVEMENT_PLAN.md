@@ -245,11 +245,11 @@
 - `src/game/state/gameState.ts`
 
 **Tarefas:**
-- [ ] Adicionar botao "Fugir" discreto no header da batalha (canto esquerdo)
-- [ ] Estilo: ghost button, cor `#888`, icone de porta/saida
-- [ ] Ao clicar: dialog de confirmacao "Abandonar combate? Voce perdera esta batalha."
-- [ ] Ao confirmar: chamar funcao de derrota e voltar ao mapa
-- [ ] Desabilitar botao durante turno do inimigo
+- [x] Adicionar botao "Fugir" discreto no header da batalha (canto esquerdo)
+- [x] Estilo: ghost button, cor `#888`, icone de porta/saida
+- [x] Ao clicar: dialog de confirmacao "Abandonar combate? Voce perdera esta batalha."
+- [x] Ao confirmar: chamar funcao de derrota e voltar ao mapa
+- [x] Desabilitar botao durante turno do inimigo
 
 ---
 

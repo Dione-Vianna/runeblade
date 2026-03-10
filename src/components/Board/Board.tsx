@@ -19,6 +19,7 @@ interface BoardProps {
   onEndTurn: () => void;
   onRestart: () => void;
   canPlayCard: (card: CardInstance) => boolean;
+  onFlee?: () => void;
 }
 
 export function Board({
@@ -31,10 +32,12 @@ export function Board({
   onPlayCard,
   onEndTurn,
   onRestart,
-  canPlayCard
+  canPlayCard,
+  onFlee
 }: BoardProps) {
   const { numbers, addNumber } = useFloatingNumbers();
   const { play } = useSoundManager();
+  const [fleeConfirmOpen, setFleeConfirmOpen] = useState(false);
   const [prevPlayerHp, setPrevPlayerHp] = useState(player.hp);
   const [prevPlayerArmor, setPrevPlayerArmor] = useState(player.armor);
   const [prevEnemyHp, setPrevEnemyHp] = useState(enemy?.hp ?? 0);
@@ -118,8 +121,30 @@ export function Board({
     setPrevEnemyArmor(enemy.armor);
   }, [enemy?.hp, enemy?.armor, addNumber, prevEnemyHp, prevEnemyArmor, enemy, play]);
 
+  const handleFleeConfirm = () => {
+    setFleeConfirmOpen(false);
+    onFlee?.();
+  };
+
   return (
     <div className={`board${boardShake ? ' board--shake' : ''}`}>
+      {/* Flee confirmation dialog */}
+      {fleeConfirmOpen && (
+        <div className="flee-overlay">
+          <div className="flee-dialog">
+            <p className="flee-dialog__message">Abandonar combate? Você perderá esta batalha.</p>
+            <div className="flee-dialog__actions">
+              <button className="flee-dialog__btn flee-dialog__btn--cancel" onClick={() => setFleeConfirmOpen(false)}>
+                Cancelar
+              </button>
+              <button className="flee-dialog__btn flee-dialog__btn--confirm" onClick={handleFleeConfirm}>
+                Abandonar
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Floating Numbers */}
       <div className="board__floating-numbers">
         {numbers.map(num => (
@@ -159,8 +184,20 @@ export function Board({
 
       {/* Área central compacta - pill de turno */}
       <div className="board__center">
-        <div className={`turn-pill ${isPlayerTurn ? 'turn-pill--player' : 'turn-pill--enemy'}`}>
-          Turno {round} · {isPlayerTurn ? '🎮 Sua vez' : '👹 Turno do inimigo'}
+        <div className="board__center-row">
+          {onFlee && !isGameOver && (
+            <button
+              className="flee-btn"
+              onClick={() => setFleeConfirmOpen(true)}
+              disabled={!isPlayerTurn}
+              title="Abandonar combate"
+            >
+              🚪 Fugir
+            </button>
+          )}
+          <div className={`turn-pill ${isPlayerTurn ? 'turn-pill--player' : 'turn-pill--enemy'}`}>
+            Turno {round} · {isPlayerTurn ? '🎮 Sua vez' : '👹 Turno do inimigo'}
+          </div>
         </div>
 
         {isGameOver && (

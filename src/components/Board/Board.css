@@ -124,6 +124,93 @@
   padding: var(--space-xs) 0;
 }
 
+.board__center-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+/* Botão Fugir */
+.flee-btn {
+  background: transparent;
+  border: 1px solid #555;
+  color: #888;
+  font-size: 13px;
+  padding: 5px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.flee-btn:hover:not(:disabled) {
+  color: #bbb;
+  border-color: #888;
+}
+
+.flee-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Dialog de confirmação de fuga */
+.flee-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+}
+
+.flee-dialog {
+  background: #1a1a2e;
+  border: 1px solid #444;
+  border-radius: 12px;
+  padding: 28px 32px;
+  max-width: 340px;
+  width: 90%;
+  text-align: center;
+}
+
+.flee-dialog__message {
+  color: #ccc;
+  font-size: 15px;
+  margin: 0 0 20px 0;
+  line-height: 1.5;
+}
+
+.flee-dialog__actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.flee-dialog__btn {
+  padding: 8px 22px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: opacity 0.15s;
+}
+
+.flee-dialog__btn:hover {
+  opacity: 0.85;
+}
+
+.flee-dialog__btn--cancel {
+  background: transparent;
+  border-color: #555;
+  color: #aaa;
+}
+
+.flee-dialog__btn--confirm {
+  background: #7a1a1a;
+  border-color: #aa3333;
+  color: #ffaaaa;
+}
+
 .turn-pill {
   display: inline-flex;
   align-items: center;

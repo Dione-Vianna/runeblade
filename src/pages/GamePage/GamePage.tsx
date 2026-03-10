@@ -57,6 +57,7 @@ export function GamePage({ onBattleEnd, showReturnButton = false }: GamePageProp
         onEndTurn={endTurn}
         onRestart={handleRestart}
         canPlayCard={canPlayCard}
+        onFlee={onBattleEnd ? handleRestart : undefined}
       />
       {showReturnButton && isGameOver && onBattleEnd && (
         <div className="game-page__return">

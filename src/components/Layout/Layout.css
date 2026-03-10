@@ -147,12 +147,19 @@
 
 @media (max-width: 600px) {
   .layout__header {
-    flex-direction: column;
-    gap: 10px;
+    padding: 10px 16px;
+    position: relative;
   }
 
   .layout__title {
-    font-size: 24px;
+    font-size: 20px;
+  }
+
+  .layout__settings-btn {
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    transform: translateY(-50%);
   }
 
   .layout__settings-content {

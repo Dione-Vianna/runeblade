@@ -167,10 +167,10 @@
 - `src/components/Layout/Layout.tsx`
 
 **Tarefas:**
-- [ ] Remover `flex-direction: column` do media query mobile
-- [ ] Header sempre em row: titulo flex:1 centralizado, settings absolute top-right
-- [ ] Titulo: `20px` no mobile (em vez de 24px)
-- [ ] Reduzir padding do header para `10px 16px` no mobile
+- [x] Remover `flex-direction: column` do media query mobile
+- [x] Header sempre em row: titulo flex:1 centralizado, settings absolute top-right
+- [x] Titulo: `20px` no mobile (em vez de 24px)
+- [x] Reduzir padding do header para `10px 16px` no mobile
 - [ ] Testar em 320px, 375px, 414px
 
 ---

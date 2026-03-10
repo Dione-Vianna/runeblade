@@ -85,7 +85,7 @@
 - Todos os arquivos `.css` do projeto
 
 **Tarefas:**
-- [ ] Adicionar tokens de spacing no `:root`:
+- [x] Adicionar tokens de spacing no `:root`:
   ```css
   --space-2xs: 0.125rem;  /* 2px */
   --space-xs: 0.25rem;    /* 4px */
@@ -95,7 +95,7 @@
   --space-xl: 1.5rem;     /* 24px */
   --space-2xl: 2rem;      /* 32px */
   ```
-- [ ] Adicionar tokens de border-radius:
+- [x] Adicionar tokens de border-radius:
   ```css
   --radius-sm: 0.25rem;
   --radius-md: 0.5rem;
@@ -103,12 +103,12 @@
   --radius-xl: 1rem;
   --radius-full: 9999px;
   ```
-- [ ] Migrar Board.css de `px` para tokens
-- [ ] Migrar Card.css de `px` para tokens
-- [ ] Migrar Status.css de `px` para tokens
-- [ ] Migrar Buttons.css de `px` para tokens
-- [ ] Migrar Hand.css de `px` para tokens
-- [ ] Manter `px` apenas para: `border-width`, `box-shadow`, `text-shadow`, `outline`
+- [x] Migrar Board.css de `px` para tokens
+- [x] Migrar Card.css de `px` para tokens
+- [x] Migrar Status.css de `px` para tokens
+- [x] Migrar Buttons.css de `px` para tokens
+- [x] Migrar Hand.css de `px` para tokens
+- [x] Manter `px` apenas para: `border-width`, `box-shadow`, `text-shadow`, `outline`
 
 ---
 

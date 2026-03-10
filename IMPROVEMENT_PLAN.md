@@ -10,11 +10,11 @@
 - `src/components/Board/Board.css`
 
 **Tarefas:**
-- [ ] Reduzir card para 120x170px na mao (manter 140x200 em outros contextos via modificador)
-- [ ] Implementar fan effect com `transform: rotate()` progressivo por indice da carta
-- [ ] Adicionar hover que levanta a carta e cancela a rotacao
-- [ ] No mobile (<600px): cards menores (100x150px), layout horizontal com scroll
-- [ ] Garantir que `board__hand-area` nunca excede a viewport (`max-height: 30vh`)
+- [x] Reduzir card para 120x170px na mao (manter 140x200 em outros contextos via modificador)
+- [x] Implementar fan effect com `transform: rotate()` progressivo por indice da carta
+- [x] Adicionar hover que levanta a carta e cancela a rotacao
+- [x] No mobile (<600px): cards menores (100x150px), layout horizontal com scroll
+- [x] Garantir que `board__hand-area` nunca excede a viewport (`max-height: 30vh`)
 
 ---
 
@@ -27,11 +27,11 @@
 - `src/components/Board/Board.css`
 
 **Tarefas:**
-- [ ] Mudar grid de `1fr auto 1fr auto` para `auto auto 1fr auto` (inimigo e centro compactos)
-- [ ] Comprimir area central: turno como pill inline (`Turno 1 · Sua vez`)
-- [ ] Mover botao "Finalizar Turno" para a area da mao (canto direito, ao lado das cartas)
-- [ ] Aumentar destaque do intent do inimigo: icone 24px, cor mais viva, animacao `pulse` sutil
-- [ ] Adicionar borda glow pulsante no painel do inimigo durante turno do jogador (indica alvo)
+- [x] Mudar grid de `1fr auto 1fr auto` para `auto auto 1fr auto` (inimigo e centro compactos)
+- [x] Comprimir area central: turno como pill inline (`Turno 1 · Sua vez`)
+- [x] Mover botao "Finalizar Turno" para a area da mao (canto direito, ao lado das cartas)
+- [x] Aumentar destaque do intent do inimigo: icone 24px, cor mais viva, animacao `pulse` sutil
+- [x] Adicionar borda glow pulsante no painel do inimigo durante turno do jogador (indica alvo)
 
 ---
 

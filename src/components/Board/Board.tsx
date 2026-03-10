@@ -105,7 +105,7 @@ export function Board({
       {/* Área do inimigo */}
       <div className="board__enemy-area">
         {enemy && (
-          <div className={`enemy-panel ${enemyDamageAnimation ? 'damage-taken' : ''}`}>
+          <div className={`enemy-panel ${enemyDamageAnimation ? 'damage-taken' : ''} ${isPlayerTurn ? 'enemy-panel--player-turn' : ''}`}>
             <div className="enemy-panel__portrait">
               <span className="enemy-panel__emoji">👹</span>
             </div>
@@ -132,13 +132,10 @@ export function Board({
         )}
       </div>
 
-      {/* Área central - informações do turno */}
+      {/* Área central compacta - pill de turno */}
       <div className="board__center">
-        <div className="turn-info">
-          <span className="turn-info__round">Turno {round}</span>
-          <span className={`turn-info__current ${isPlayerTurn ? 'turn-info__current--player' : 'turn-info__current--enemy'}`}>
-            {isPlayerTurn ? '🎮 Sua vez' : '👹 Turno do inimigo'}
-          </span>
+        <div className={`turn-pill ${isPlayerTurn ? 'turn-pill--player' : 'turn-pill--enemy'}`}>
+          Turno {round} · {isPlayerTurn ? '🎮 Sua vez' : '👹 Turno do inimigo'}
         </div>
 
         {isGameOver && (
@@ -153,10 +150,6 @@ export function Board({
             </p>
             <RestartButton onClick={onRestart} />
           </div>
-        )}
-
-        {!isGameOver && isPlayerTurn && (
-          <EndTurnButton onClick={onEndTurn} disabled={!isPlayerTurn} />
         )}
       </div>
 
@@ -199,6 +192,11 @@ export function Board({
           canPlayCard={canPlayCard}
           disabled={!isPlayerTurn || isGameOver}
         />
+        {!isGameOver && (
+          <div className="board__end-turn-wrapper">
+            <EndTurnButton onClick={onEndTurn} disabled={!isPlayerTurn} />
+          </div>
+        )}
       </div>
     </div>
   );

@@ -65,14 +65,14 @@
 - `src/components/Map/Map.css`
 
 **Tarefas:**
-- [ ] Aumentar nodes de 50px para 64px, emojis de 20px para 28px
-- [ ] Caminhos disponiveis: linha solida 3px branca com glow
-- [ ] Caminhos bloqueados: linha dashed 1px `#444`
-- [ ] Node disponivel: borda branca + animacao `pulse` sutil + cursor pointer
-- [ ] Node completado: opacidade 0.5 + checkmark overlay
-- [ ] Node bloqueado: grayscale(80%) + opacidade 0.3
-- [ ] Node atual: borda dourada + glow forte
-- [ ] Adicionar tooltip no hover com tipo do node e descricao
+- [x] Aumentar nodes de 50px para 64px, emojis de 20px para 28px
+- [x] Caminhos disponiveis: linha solida 3px branca com glow
+- [x] Caminhos bloqueados: linha dashed 1px `#444`
+- [x] Node disponivel: borda branca + animacao `pulse` sutil + cursor pointer
+- [x] Node completado: opacidade 0.5 + checkmark overlay
+- [x] Node bloqueado: grayscale(80%) + opacidade 0.3
+- [x] Node atual: borda dourada + glow forte
+- [x] Adicionar tooltip no hover com tipo do node e descricao
 
 ---
 

@@ -61,8 +61,8 @@
 /* Nó do mapa */
 .map-node {
   position: absolute;
-  width: 50px;
-  height: 50px;
+  width: 64px;
+  height: 64px;
   transform: translate(-50%, -50%);
   display: flex;
   align-items: center;
@@ -74,7 +74,7 @@
 }
 
 .map-node__icon {
-  font-size: 24px;
+  font-size: 28px;
   z-index: 2;
 }
 
@@ -87,41 +87,106 @@
   opacity: 0;
 }
 
+/* Checkmark overlay para nós completados */
+.map-node__checkmark {
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  width: 20px;
+  height: 20px;
+  background: #44aa44;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  color: #fff;
+  font-weight: bold;
+  z-index: 3;
+  border: 2px solid #0d1a2d;
+}
+
+/* Tooltip */
+.map-node__tooltip {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(10, 10, 20, 0.95);
+  border: 1px solid #555;
+  border-radius: 6px;
+  padding: 6px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 120px;
+  text-align: center;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  z-index: 100;
+  white-space: nowrap;
+}
+
+.map-node:hover .map-node__tooltip {
+  opacity: 1;
+}
+
+.map-node__tooltip-name {
+  font-size: 13px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.map-node__tooltip-desc {
+  font-size: 11px;
+  color: #aaa;
+}
+
 /* Status dos nós */
 .map-node--locked {
-  opacity: 0.4;
+  opacity: 0.3;
   cursor: not-allowed;
+  filter: grayscale(80%);
   background: rgba(50, 50, 50, 0.8);
-  border: 2px solid #333;
+  border: 1px dashed #444;
 }
 
 .map-node--available {
-  background: rgba(68, 136, 255, 0.3);
-  border: 3px solid #4488ff;
-  box-shadow: 0 0 20px rgba(68, 136, 255, 0.5);
-  animation: glow 2s ease-in-out infinite;
+  background: rgba(255, 255, 255, 0.1);
+  border: 3px solid #ffffff;
+  box-shadow: 0 0 16px rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  animation: nodeAvailablePulse 2s ease-in-out infinite;
 }
 
-.map-node--available:hover {
-  transform: translate(-50%, -50%) scale(1.2);
-  box-shadow: 0 0 30px rgba(68, 136, 255, 0.8);
+@media (hover: hover) {
+  .map-node--available:hover {
+    transform: translate(-50%, -50%) scale(1.2);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.7);
+  }
 }
 
 .map-node--available .map-node__pulse {
-  background: rgba(68, 136, 255, 0.5);
+  background: rgba(255, 255, 255, 0.3);
   opacity: 1;
 }
 
 .map-node--current {
-  background: rgba(255, 215, 0, 0.3);
+  background: rgba(255, 215, 0, 0.25);
   border: 3px solid #ffd700;
-  box-shadow: 0 0 25px rgba(255, 215, 0, 0.6);
+  box-shadow:
+    0 0 20px rgba(255, 215, 0, 0.7),
+    0 0 40px rgba(255, 215, 0, 0.4),
+    inset 0 0 12px rgba(255, 215, 0, 0.2);
+  cursor: default;
 }
 
 .map-node--completed {
-  background: rgba(68, 170, 68, 0.3);
+  opacity: 0.5;
+  cursor: default;
+  background: rgba(68, 170, 68, 0.2);
   border: 2px solid #44aa44;
-  opacity: 0.7;
 }
 
 /* Tipos de nós */
@@ -134,8 +199,8 @@
 }
 
 .map-node--boss {
-  width: 70px;
-  height: 70px;
+  width: 80px;
+  height: 80px;
   background: linear-gradient(145deg, rgba(255, 0, 0, 0.4), rgba(150, 0, 0, 0.4));
 }
 
@@ -161,21 +226,23 @@
 
 /* Linhas de caminho */
 .map-path__line {
-  stroke: #333;
-  stroke-width: 3;
+  stroke: #444;
+  stroke-width: 1;
   stroke-linecap: round;
-  stroke-dasharray: 8, 4;
+  stroke-dasharray: 6, 4;
 }
 
 .map-path__line--completed {
   stroke: #44aa44;
+  stroke-width: 2;
   stroke-dasharray: none;
 }
 
 .map-path__line--available {
-  stroke: #4488ff;
-  stroke-width: 4;
-  filter: drop-shadow(0 0 5px rgba(68, 136, 255, 0.5));
+  stroke: #ffffff;
+  stroke-width: 3;
+  stroke-dasharray: none;
+  filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.6)) drop-shadow(0 0 8px rgba(255, 255, 255, 0.3));
   animation: pathGlow 1.5s ease-in-out infinite;
 }
 
@@ -205,7 +272,6 @@
 
 /* Animações */
 @keyframes pulse {
-
   0%,
   100% {
     transform: scale(1);
@@ -218,20 +284,18 @@
   }
 }
 
-@keyframes glow {
-
+@keyframes nodeAvailablePulse {
   0%,
   100% {
-    box-shadow: 0 0 20px rgba(68, 136, 255, 0.5);
+    box-shadow: 0 0 16px rgba(255, 255, 255, 0.4);
   }
 
   50% {
-    box-shadow: 0 0 35px rgba(68, 136, 255, 0.8);
+    box-shadow: 0 0 28px rgba(255, 255, 255, 0.7);
   }
 }
 
 @keyframes pathGlow {
-
   0%,
   100% {
     opacity: 0.7;

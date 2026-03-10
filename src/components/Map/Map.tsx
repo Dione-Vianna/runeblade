@@ -2,6 +2,17 @@ import { MapEngine } from '../../game/core';
 import type { GameMap, MapNode as MapNodeType, MapPath } from '../../game/types';
 import './Map.css';
 
+const encounterDescriptions: Record<string, string> = {
+  start: 'Ponto de partida',
+  enemy: 'Combate contra um monstro',
+  elite: 'Combate difícil com recompensa especial',
+  boss: 'Chefe do ato — muito perigoso',
+  rest: 'Recupere vida ou melhore uma carta',
+  shop: 'Compre cartas e relíquias',
+  event: 'Encontro misterioso',
+  treasure: 'Cofre com recompensas',
+};
+
 interface MapNodeProps {
   node: MapNodeType;
   onClick?: (node: MapNodeType) => void;
@@ -17,6 +28,7 @@ export function MapNode({ node, onClick, isConnected = false }: MapNodeProps) {
 
   const icon = MapEngine.getEncounterIcon(node.type);
   const name = MapEngine.getEncounterName(node.type);
+  const description = encounterDescriptions[node.type] ?? 'Desconhecido';
 
   return (
     <div
@@ -26,10 +38,16 @@ export function MapNode({ node, onClick, isConnected = false }: MapNodeProps) {
         top: `${node.y}%`,
       }}
       onClick={handleClick}
-      title={name}
     >
       <div className="map-node__icon">{icon}</div>
       <div className="map-node__pulse" />
+      {node.status === 'completed' && (
+        <div className="map-node__checkmark">✓</div>
+      )}
+      <div className="map-node__tooltip">
+        <span className="map-node__tooltip-name">{name}</span>
+        <span className="map-node__tooltip-desc">{description}</span>
+      </div>
     </div>
   );
 }

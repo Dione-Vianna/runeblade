@@ -29,6 +29,35 @@
   --color-text-secondary: #aaaaaa;
   --color-text-muted: #666666;
 
+  /* Rarity */
+  --color-rarity-common: #9d9d9d;
+  --color-rarity-uncommon: #1eff00;
+  --color-rarity-rare: #0070dd;
+  --color-rarity-epic: #a335ee;
+  --color-rarity-legendary: #ff8000;
+
+  /* Card Types */
+  --color-card-attack: #ff4444;
+  --color-card-defense: #44aaff;
+  --color-card-magic: #aa44ff;
+  --color-card-buff: #44ff44;
+  --color-card-debuff: #ff8844;
+
+  /* Status Effects */
+  --color-status-poison: #44ff44;
+  --color-status-bleed: #ff4444;
+  --color-status-burn: #ff8844;
+  --color-status-weakness: #ff88ff;
+  --color-status-strength: #ffaa44;
+  --color-status-regen: #44ffaa;
+  --color-status-vulnerable: #ff4488;
+  --color-status-shield: #8888ff;
+
+  /* Surfaces */
+  --color-surface-enemy: rgba(60, 20, 20, 0.8);
+  --color-surface-player: rgba(20, 40, 60, 0.8);
+  --color-surface-card: linear-gradient(145deg, #2a2a3e, #1a1a2e);
+
   /* Spacing */
   --space-2xs: 0.125rem;  /* 2px */
   --space-xs: 0.25rem;    /* 4px */

@@ -145,7 +145,7 @@
 }
 
 .status-effect--poison {
-  border: 1px solid #44ff44;
+  border: 1px solid var(--color-status-poison);
   color: #88ff88;
 }
 
@@ -154,7 +154,7 @@
 }
 
 .status-effect--bleed {
-  border: 1px solid #ff4444;
+  border: 1px solid var(--color-status-bleed);
   color: #ff8888;
 }
 
@@ -163,7 +163,7 @@
 }
 
 .status-effect--burn {
-  border: 1px solid #ff8844;
+  border: 1px solid var(--color-status-burn);
   color: #ffaa88;
 }
 
@@ -172,12 +172,12 @@
 }
 
 .status-effect--weakness {
-  border: 1px solid #ff88ff;
+  border: 1px solid var(--color-status-weakness);
   color: #ffaaff;
 }
 
 .status-effect--strength {
-  border: 1px solid #ffaa44;
+  border: 1px solid var(--color-status-strength);
   color: #ffcc88;
 }
 
@@ -186,7 +186,7 @@
 }
 
 .status-effect--regeneration {
-  border: 1px solid #44ffaa;
+  border: 1px solid var(--color-status-regen);
   color: #88ffcc;
 }
 
@@ -195,11 +195,11 @@
 }
 
 .status-effect--vulnerable {
-  border: 1px solid #ff4488;
+  border: 1px solid var(--color-status-vulnerable);
   color: #ff88aa;
 }
 
 .status-effect--shield {
-  border: 1px solid #8888ff;
+  border: 1px solid var(--color-status-shield);
   color: #aaaaff;
 }

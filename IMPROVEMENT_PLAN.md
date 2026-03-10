@@ -121,7 +121,7 @@
 - Todos os arquivos `.css` que usam cores hardcoded
 
 **Tarefas:**
-- [ ] Adicionar tokens de raridade:
+- [x] Adicionar tokens de raridade:
   ```css
   --color-rarity-common: #9d9d9d;
   --color-rarity-uncommon: #1eff00;
@@ -129,7 +129,7 @@
   --color-rarity-epic: #a335ee;
   --color-rarity-legendary: #ff8000;
   ```
-- [ ] Adicionar tokens de tipo de carta:
+- [x] Adicionar tokens de tipo de carta:
   ```css
   --color-card-attack: #ff4444;
   --color-card-defense: #44aaff;
@@ -137,7 +137,7 @@
   --color-card-buff: #44ff44;
   --color-card-debuff: #ff8844;
   ```
-- [ ] Adicionar tokens de status effect:
+- [x] Adicionar tokens de status effect:
   ```css
   --color-status-poison: #44ff44;
   --color-status-bleed: #ff4444;
@@ -148,13 +148,13 @@
   --color-status-vulnerable: #ff4488;
   --color-status-shield: #8888ff;
   ```
-- [ ] Adicionar tokens de superficie:
+- [x] Adicionar tokens de superficie:
   ```css
   --color-surface-enemy: rgba(60, 20, 20, 0.8);
   --color-surface-player: rgba(20, 40, 60, 0.8);
   --color-surface-card: linear-gradient(145deg, #2a2a3e, #1a1a2e);
   ```
-- [ ] Substituir todas as cores hardcoded nos CSS por variaveis
+- [x] Substituir todas as cores hardcoded nos CSS por variaveis
 
 ---
 

@@ -16,7 +16,7 @@
 
 .shop-page__title {
   font-size: 2rem;
-  color: #ffd700;
+  color: var(--color-gold);
   text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
   margin: 0;
 }
@@ -26,7 +26,7 @@
   align-items: center;
   gap: 0.5rem;
   font-size: 1.5rem;
-  color: #ffd700;
+  color: var(--color-gold);
   background: rgba(255, 215, 0, 0.1);
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
@@ -115,23 +115,23 @@
 }
 
 .shop-item--common {
-  border-color: #9d9d9d;
+  border-color: var(--color-rarity-common);
 }
 
 .shop-item--uncommon {
-  border-color: #1eff00;
+  border-color: var(--color-rarity-uncommon);
 }
 
 .shop-item--rare {
-  border-color: #0070dd;
+  border-color: var(--color-rarity-rare);
 }
 
 .shop-item--epic {
-  border-color: #a335ee;
+  border-color: var(--color-rarity-epic);
 }
 
 .shop-item--legendary {
-  border-color: #ff8000;
+  border-color: var(--color-rarity-legendary);
   box-shadow: 0 0 15px rgba(255, 128, 0, 0.3);
 }
 
@@ -217,7 +217,7 @@
 .shop-item__final-price {
   font-size: 1.1rem;
   font-weight: bold;
-  color: #ffd700;
+  color: var(--color-gold);
 }
 
 .shop-item__buy-btn {
@@ -291,23 +291,23 @@
 }
 
 .deck-card--common {
-  border-left: 3px solid #9d9d9d;
+  border-left: 3px solid var(--color-rarity-common);
 }
 
 .deck-card--uncommon {
-  border-left: 3px solid #1eff00;
+  border-left: 3px solid var(--color-rarity-uncommon);
 }
 
 .deck-card--rare {
-  border-left: 3px solid #0070dd;
+  border-left: 3px solid var(--color-rarity-rare);
 }
 
 .deck-card--epic {
-  border-left: 3px solid #a335ee;
+  border-left: 3px solid var(--color-rarity-epic);
 }
 
 .deck-card--legendary {
-  border-left: 3px solid #ff8000;
+  border-left: 3px solid var(--color-rarity-legendary);
 }
 
 .deck-card__icon {
@@ -351,7 +351,7 @@
 
 .deck-card__sell-price {
   font-size: 0.7rem;
-  color: #ffd700;
+  color: var(--color-gold);
 }
 
 /* ==================== COLLECTION VIEW ==================== */
